@@ -1,46 +1,162 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
+    android:orientation="vertical"
+
     android:background="@color/purple_200"
-    tools:context=".MonthViewActivity">
+    tools:context=".MonthViewActivity"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
         android:orientation="horizontal"
-        android:background="@color/teal_200"
-        android:gravity="center">
+
+        android:background="@color/Mint_200"
+        android:gravity="center"
+        >
 
         <Button
             android:id="@+id/previous"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+
             android:text="이전"
+            android:textSize="30dp"
             />
 
         <TextView
             android:id="@+id/year_month"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=" 년 월"
 
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
+            android:text=" 년 월"
+            android:textColor="@color/black"
+            android:textSize="30dp"
+
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="60dp"
             />
 
         <Button
             android:id="@+id/next"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+
             android:text="다음"
+            android:textSize="30dp"
             />
 
+    </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
 
+        android:layout_gravity="center"
+
+        android:background="@color/Yellow"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+
+            android:text="일"
+            android:textSize="30dp"
+            android:textColor="@color/Red"
+
+            android:gravity="center"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+
+            android:text="월"
+            android:textSize="30dp"
+            android:textColor="@color/black"
+
+            android:gravity="center"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+
+            android:text="화"
+            android:textSize="30dp"
+            android:textColor="@color/black"
+
+            android:gravity="center"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+
+            android:text="수"
+            android:textSize="30dp"
+            android:textColor="@color/black"
+
+            android:gravity="center"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+
+            android:text="목"
+            android:textSize="30dp"
+            android:textColor="@color/black"
+
+            android:gravity="center"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+
+            android:text="금"
+            android:textSize="30dp"
+            android:textColor="@color/black"
+
+            android:gravity="center"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+
+            android:text="토"
+            android:textSize="30dp"
+            android:textColor="@color/Blue"
+
+            android:gravity="center"
+            />
 
     </LinearLayout>
+
+    <GridView
+        android:id="@+id/gv_calendar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+
+
+        android:numColumns="7"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="10dp"
+        android:horizontalSpacing="10dp"
+        />
+
 </LinearLayout>
