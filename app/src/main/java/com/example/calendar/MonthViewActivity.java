@@ -33,12 +33,9 @@ public class MonthViewActivity extends AppCompatActivity {
         //cal.set(2021,3,1);
         //int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK);
 
-        year = Calendar.getInstance().get(Calendar.YEAR);
-        month = Calendar.getInstance().get(Calendar.MONTH);
 
         TextView yearMonthTV = findViewById(R.id.year_month); // year_month 가져오기
-        // yearMonthTV.setText(year + "년"+ (month+1) + "월"); // ?
-        yearMonthTV.setText(year + "년 " + month + "월");
+        yearMonthTV.setText(year + "년" + month + "월");
 
 
         Button prevBtn = findViewById(R.id.previous);
@@ -55,7 +52,7 @@ public class MonthViewActivity extends AppCompatActivity {
             }
         });
 
-        /*
+
         Button nextBtn = findViewById(R.id.next);
         nextBtn.setOnClickListener(new View.OnClickListener(){
 
@@ -69,7 +66,5 @@ public class MonthViewActivity extends AppCompatActivity {
                 finish();
             }
         });
-
-         */
     }
 }
