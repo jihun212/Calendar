@@ -18,6 +18,9 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_gravity="left"
+
+        android:layout_marginLeft="40dp"
+
         android:text="이전"
         />
 
@@ -35,6 +38,9 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_gravity="right"
+
+        android:layout_marginRight="40dp"
+
         android:text="다음"
         />
 
