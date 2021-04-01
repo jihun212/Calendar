@@ -52,89 +52,106 @@
             android:textSize="20dp" />
 
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:background="@color/Yellow"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-
-            android:text="일"
-            android:textSize="20dp"
-            android:textColor="@color/Red"
-
-            android:gravity="center" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-
-            android:text="월"
-            android:textSize="20dp"
-            android:textColor="@color/black"
-
-            android:gravity="center" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-
-            android:text="화"
-            android:textSize="20dp"
-            android:textColor="@color/black"
-
-            android:gravity="center" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-
-            android:text="수"
-            android:textSize="20dp"
-            android:textColor="@color/black"
-
-            android:gravity="center" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-
-            android:text="목"
-            android:textSize="20dp"
-            android:textColor="@color/black"
-
-            android:gravity="center" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-
-            android:text="금"
-            android:textSize="20dp"
-            android:textColor="@color/black"
-
-            android:gravity="center" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-
-            android:text="토"
-            android:textSize="20dp"
-            android:textColor="@color/Blue"
-
-            android:gravity="center" />
-
-    </LinearLayout>
-    <GridView
-        android:id="@+id/gv_calendar"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@color/Yellow"
+    android:orientation="horizontal">
+    <TextView
+        android:gravity="center_horizontal"
+        android:id="@+id/tv_item_gridview"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="80dp"
+        android:textSize="20sp"/>
+    </LinearLayout>
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:background="@color/Yellow"-->
+<!--        android:orientation="horizontal">-->
+
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_weight="1"-->
+
+<!--            android:text="일"-->
+<!--            android:textSize="20dp"-->
+<!--            android:textColor="@color/Red"-->
+
+<!--            android:gravity="center" />-->
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_weight="1"-->
+
+<!--            android:text="월"-->
+<!--            android:textSize="20dp"-->
+<!--            android:textColor="@color/black"-->
+
+<!--            android:gravity="center" />-->
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_weight="1"-->
+
+<!--            android:text="화"-->
+<!--            android:textSize="20dp"-->
+<!--            android:textColor="@color/black"-->
+
+<!--            android:gravity="center" />-->
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_weight="1"-->
+
+<!--            android:text="수"-->
+<!--            android:textSize="20dp"-->
+<!--            android:textColor="@color/black"-->
+
+<!--            android:gravity="center" />-->
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_weight="1"-->
+
+<!--            android:text="목"-->
+<!--            android:textSize="20dp"-->
+<!--            android:textColor="@color/black"-->
+
+<!--            android:gravity="center" />-->
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_weight="1"-->
+
+<!--            android:text="금"-->
+<!--            android:textSize="20dp"-->
+<!--            android:textColor="@color/black"-->
+
+<!--            android:gravity="center" />-->
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_weight="1"-->
+
+<!--            android:text="토"-->
+<!--            android:textSize="20dp"-->
+<!--            android:textColor="@color/Blue"-->
+
+<!--            android:gravity="center" />-->
+
+
+
+<!--    </LinearLayout>-->
+    <GridView
+        android:id="@+id/monthView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:gravity="center"
 
         android:numColumns="7"
