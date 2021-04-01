@@ -7,10 +7,10 @@
     <color name="teal_700">#FF018786</color>
 
     <color name="Blue">#0022FF</color>
-    <color name="Mint">#FF03DAC5</color>
+    <color name="Mint_200">#FF03DAC5</color>
+    <color name="Mint_500">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="Yellow">#FFC107</color>
     <color name="Red">#FF0000</color>
-    <color name="Gray">#787878</color>
 </resources>
