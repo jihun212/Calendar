@@ -61,7 +61,7 @@ public class MonthViewActivity extends AppCompatActivity {
                 MonthItem curItem = (MonthItem) monthViewAdapter.getItem(position);
                 int day = curItem.getDay();
 
-                Log.d("MainActivity", "Selected : " + day);
+                //Log.d("MainActivity", "Selected : " + day);
             }
         });
 

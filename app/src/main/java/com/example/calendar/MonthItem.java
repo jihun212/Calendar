@@ -1,18 +1,8 @@
 package com.example.calendar;
 
-/**
- * 일자 정보를 담기 위한 클래스 정의
- *
- * @author Mike
- *
- */
+//일자 정보를 담기 위한 클래스 정의
 public class MonthItem {
-
     private int dayValue;
-
-    public MonthItem() {
-
-    }
 
     public MonthItem(int day) {
         dayValue = day;
