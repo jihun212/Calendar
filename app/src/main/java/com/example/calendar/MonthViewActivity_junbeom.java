@@ -19,8 +19,6 @@ public class MonthViewActivity_junbeom extends AppCompatActivity {
     TextView year_month;
     int curYear;
     int curMonth;
-    int curDay;
-    int curWeek;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,18 +58,16 @@ public class MonthViewActivity_junbeom extends AppCompatActivity {
                 int day = curItem.getDay();
 
 
-
+                //토스트메세지
                 curYear = monthViewAdapter.getCurYear();
                 curMonth = monthViewAdapter.getCurMonth();
-                curWeek = monthViewAdapter.getCurWeek();
                 final int month = curMonth;
                 final int year = curYear;
-                final int week = curWeek;
-                //String day_full = year + "년 "+ (month+1)  + "월 " + day + "일 " + week + "요일";
                 String day_full = year + "년 "+ (month+1)  + "월 " + day + "일 ";
-
-                Toast myToast = Toast.makeText(MonthViewActivity_junbeom.this,day_full, Toast.LENGTH_LONG);
-                myToast.show();
+                if(day !=0) {
+                    Toast myToast = Toast.makeText(MonthViewActivity_junbeom.this, day_full, Toast.LENGTH_LONG);
+                    myToast.show();
+                }
             }
         });
 
@@ -114,27 +110,7 @@ public class MonthViewActivity_junbeom extends AppCompatActivity {
                 setMonthText();
             }
         });
-        //토스트메세지지
-/*
-       gv_calendar.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                curYear = monthViewAdapter.getCurYear();
-                curMonth = monthViewAdapter.getCurMonth();
-                //curDay = monthViewAdapter.getCurDay();
-                curWeek = monthViewAdapter.getCurWeek();
-                final int month = curMonth;
-                final int year = curYear;
-                //final int day = curDay;
-                final int week = curWeek;
-                //String day_full = year + "년 "+ (month+1)  + "월 " + day + "일 " + week + "요일";
-                String day_full = year + "년 "+ (month+1)  + "월 " + curDay + "일 " + week + "요일";
-
-                Toast myToast = Toast.makeText(MonthViewActivity_junbeom.this,day_full, Toast.LENGTH_LONG);
-                myToast.show();
-            }
-        });*/
     }
 
     private void setMonthText() {
