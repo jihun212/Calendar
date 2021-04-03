@@ -102,8 +102,7 @@ public class MonthViewActivity_junbeom extends AppCompatActivity {
         });
 
         //토스트메세지
-        gv_calendar.setOnItemClickListener(
-                new AdapterView.OnItemClickListener() {
+        gv_calendar.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 

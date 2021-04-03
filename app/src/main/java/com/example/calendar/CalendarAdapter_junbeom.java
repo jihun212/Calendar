@@ -93,8 +93,6 @@ public class CalendarAdapter_junbeom extends BaseAdapter {
         mStartDay = mCalendar.getFirstDayOfWeek();
         curYear = mCalendar.get(Calendar.YEAR);
         curMonth = mCalendar.get(Calendar.MONTH);
-        curDay = mCalendar.get(Calendar.DATE);
-        curWeek = mCalendar.get(Calendar.DAY_OF_WEEK);
         lastDay = getMonthLastDay(curYear, curMonth);
 
         int diff = mStartDay - Calendar.SUNDAY -1;
