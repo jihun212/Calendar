@@ -16,9 +16,9 @@ public class MainActivity_junbeom extends AppCompatActivity {
 
     GridView gv_calendar;
     MonthAdapter_junbeom monthViewAdapter;
-    //TextView monthText;
-    int year;
-    int month;
+    TextView year_month;
+    int curYear;
+    int curMonth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,16 +56,20 @@ public class MainActivity_junbeom extends AppCompatActivity {
             }
         });
 
-        //년, 월 텍스트 가져오기
-        TextView yearMonthTV = findViewById(R.id.year_month);
-        yearMonthTV.setText(year + "년" + month + "월");
 
+        //년, 월 텍스트 가져오기
+        year_month = findViewById(R.id.year_month);
+        setMonthText();
+
+        //이전 월로 넘어가는 이벤트 처리
         Button prevBtn = findViewById(R.id.previous);
         prevBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 monthViewAdapter.setPreviousMonth();
                 monthViewAdapter.notifyDataSetChanged();
+
+                setMonthText();
 
                 /*
                 Intent intent = new Intent(getApplicationContext(),
@@ -80,12 +84,15 @@ public class MainActivity_junbeom extends AppCompatActivity {
             }
         });
 
+        //다음 월로 넘어가는 이벤트 처리
         Button nextBtn = findViewById(R.id.next);
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 monthViewAdapter.setNextMonth();
                 monthViewAdapter.notifyDataSetChanged();
+
+                setMonthText();
 
                 /*
                 Intent intent = new Intent(getApplicationContext(),
@@ -134,5 +141,12 @@ public class MainActivity_junbeom extends AppCompatActivity {
         });
 
          */
+    }
+
+    private void setMonthText() {
+        curYear = monthViewAdapter.getCurYear();
+        curMonth = monthViewAdapter.getCurMonth();
+
+        year_month.setText(curYear + "년" + (curMonth+1) + "월");
     }
 }

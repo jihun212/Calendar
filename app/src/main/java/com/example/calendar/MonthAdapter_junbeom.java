@@ -46,6 +46,8 @@ public class MonthAdapter_junbeom extends BaseAdapter {
     private void init() {
         items = new MonthItem[7 * 6];
         mCalendar = Calendar.getInstance();
+        mCalendar.set(2021,6,1);
+
         recalculate();
         resetDayNumbers();
     }
@@ -57,7 +59,7 @@ public class MonthAdapter_junbeom extends BaseAdapter {
     }
 
     public void setNextMonth() {
-        mCalendar.add(Calendar.MONTH, -1);
+        mCalendar.add(Calendar.MONTH, 1);
         recalculate();
         resetDayNumbers();
     }
@@ -73,9 +75,10 @@ public class MonthAdapter_junbeom extends BaseAdapter {
     }
 
     public void recalculate() {
-        mCalendar.set(Calendar.DAY_OF_MONTH, 1);
+        mCalendar.set(Calendar.DAY_OF_MONTH,1);
 
         int dayOfWeek = mCalendar.get(Calendar.DAY_OF_WEEK);
+
         firstDay = getFirstDay(dayOfWeek);
 
         mStartDay = mCalendar.getFirstDayOfWeek();
@@ -108,7 +111,17 @@ public class MonthAdapter_junbeom extends BaseAdapter {
         return result;
     }
 
+    public int getCurYear() {
+        return curYear;
+    }
 
+    public int getCurMonth() {
+        return curMonth;
+    }
+
+    public int getNumColumns() {
+        return 7;
+    }
 
     @Override
     public int getCount() {
