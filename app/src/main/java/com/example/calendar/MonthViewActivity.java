@@ -10,12 +10,10 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.Calendar;
-
-public class MonthViewActivity_junbeom extends AppCompatActivity {
+public class MonthViewActivity extends AppCompatActivity {
 
     GridView gv_calendar;
-    CalendarAdapter_junbeom monthViewAdapter;
+    CalendarAdapter monthViewAdapter;
     TextView year_month;
     int curYear;
     int curMonth;
@@ -43,7 +41,7 @@ public class MonthViewActivity_junbeom extends AppCompatActivity {
 
         //월별 캘린더뷰 객체 참조
         gv_calendar = findViewById(R.id.gv_calendar);
-        monthViewAdapter = new CalendarAdapter_junbeom(this);
+        monthViewAdapter = new CalendarAdapter(this);
         gv_calendar.setAdapter(monthViewAdapter);
 
         //리스너 설정
@@ -60,7 +58,7 @@ public class MonthViewActivity_junbeom extends AppCompatActivity {
                 final int year = curYear;
                 String day_full = year + "년 "+ (month+1)  + "월 " + day + "일 ";
                 if (day != 0) {
-                    Toast myToast = Toast.makeText(MonthViewActivity_junbeom.this, day_full, Toast.LENGTH_LONG);
+                    Toast myToast = Toast.makeText(MonthViewActivity.this, day_full, Toast.LENGTH_LONG);
                     myToast.show();
                 }
             }

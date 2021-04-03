@@ -13,7 +13,7 @@ import android.widget.GridView;
 import java.util.Calendar;
 
 //BaseAdapter를 상속하여 새로운 어댑터 정의
-public class CalendarAdapter_junbeom extends BaseAdapter {
+public class CalendarAdapter extends BaseAdapter {
     public static final String TAG = "MonthAdapter";
     Context mContext;
 
@@ -32,13 +32,13 @@ public class CalendarAdapter_junbeom extends BaseAdapter {
     boolean recreateItems = false;
 
 
-    public CalendarAdapter_junbeom(Context context) {
+    public CalendarAdapter(Context context) {
         super();
         mContext = context;
         init();
     }
 
-    public CalendarAdapter_junbeom(Context context, AttributeSet attributeSet) {
+    public CalendarAdapter(Context context, AttributeSet attributeSet) {
         super();
         mContext = context;
         init();
