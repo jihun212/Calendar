@@ -1,6 +1,5 @@
 package com.example.calendar;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -10,12 +9,10 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.Calendar;
-
-public class MainActivity_junbeom extends AppCompatActivity {
+public class MonthViewActivity_junbeom extends AppCompatActivity {
 
     GridView gv_calendar;
-    MonthAdapter_junbeom monthViewAdapter;
+    CalendarAdapter_junbeom monthViewAdapter;
     TextView year_month;
     int curYear;
     int curMonth;
@@ -43,7 +40,7 @@ public class MainActivity_junbeom extends AppCompatActivity {
 
         //월별 캘린더뷰 객체 참조
         gv_calendar = findViewById(R.id.gv_calendar);
-        monthViewAdapter = new MonthAdapter_junbeom(this);
+        monthViewAdapter = new CalendarAdapter_junbeom(this);
         gv_calendar.setAdapter(monthViewAdapter);
 
         //리스너 설정
@@ -150,3 +147,4 @@ public class MainActivity_junbeom extends AppCompatActivity {
         year_month.setText(curYear + "년" + (curMonth+1) + "월");
     }
 }
+
