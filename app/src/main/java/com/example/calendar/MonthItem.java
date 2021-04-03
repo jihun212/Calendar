@@ -15,7 +15,4 @@ public class MonthItem {
     public void setDay(int day) {
         this.dayValue = day;
     }
-
-
-
 }

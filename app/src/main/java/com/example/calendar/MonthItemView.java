@@ -1,4 +1,5 @@
 package com.example.calendar;
+
 import android.content.Context;
 import android.graphics.Color;
 
@@ -17,20 +18,17 @@ public class MonthItemView extends AppCompatTextView {
 
     public MonthItemView(Context context) {
         super(context);
-
         init();
     }
 
     public MonthItemView(Context context, AttributeSet attrs) {
         super(context, attrs);
-
         init();
     }
 
     private void init() {
         setBackgroundColor(Color.WHITE);
     }
-
 
     public MonthItem getItem() {
         return item;
@@ -45,8 +43,5 @@ public class MonthItemView extends AppCompatTextView {
         } else {
             setText("");
         }
-
     }
-
-
 }

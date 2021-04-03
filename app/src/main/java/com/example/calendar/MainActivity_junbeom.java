@@ -27,6 +27,7 @@ public class MainActivity_junbeom extends AppCompatActivity {
         setContentView(R.layout.activity_main_junbeom);
 
         Intent intent = getIntent();
+
         year = intent.getIntExtra("year", -1);
         month = intent.getIntExtra("month", -1);
 
@@ -49,7 +50,7 @@ public class MainActivity_junbeom extends AppCompatActivity {
             }
         });
 
-        //년, 월 가져오기
+        //년, 월 텍스트 가져오기
         TextView yearMonthTV = findViewById(R.id.year_month);
         yearMonthTV.setText(year + "년" + month + "월");
 
