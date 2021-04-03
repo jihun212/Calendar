@@ -12,8 +12,11 @@ import android.widget.GridView;
 
 import java.util.Calendar;
 
+//BaseAdapter를 상속하여 새로운 어댑터 정의
 public class CalendarAdapter_junbeom extends BaseAdapter {
+
     public static final String TAG = "MonthAdapter";
+
     Context mContext;
 
     private MonthItem[] items;
@@ -30,7 +33,6 @@ public class CalendarAdapter_junbeom extends BaseAdapter {
     Calendar mCalendar;
     boolean recreateItems = false;
 
-
     public CalendarAdapter_junbeom(Context context) {
         super();
         mContext = context;
@@ -42,28 +44,34 @@ public class CalendarAdapter_junbeom extends BaseAdapter {
         mContext = context;
         init();
     }
-
+    
+    //초기화 메소드 설정
+    //1개월의 일별 데이터를 담고 있을 수 있는 MonthItem의 배열 객체 생성
+    //원하는 날짜 지정
     private void init() {
         items = new MonthItem[7 * 6];
         mCalendar = Calendar.getInstance();
-        mCalendar.set(2021,6,1);
+        mCalendar.set(2021,6,1);    /////////원하는 날짜 지정///////////
 
         recalculate();
         resetDayNumbers();
     }
-
+    
+    //이전 월로 이동 시 일별 데이터 새로 계산
     public void setPreviousMonth() {
         mCalendar.add(Calendar.MONTH, -1);
         recalculate();
         resetDayNumbers();
     }
 
+    //다음 월로 이동 시 일별 데이터 새로 계산
     public void setNextMonth() {
         mCalendar.add(Calendar.MONTH, 1);
         recalculate();
         resetDayNumbers();
     }
 
+    //지정한 월의 일별 데이터를 새로 계산하는 메소드 정의
     private void resetDayNumbers() {
         for (int i = 0; i < 42; i++) {
             int dayNumber = (i+1) - firstDay;
@@ -90,7 +98,6 @@ public class CalendarAdapter_junbeom extends BaseAdapter {
         startDay = getFirstDayOfWeek();
     }
 
-
     private int getFirstDay(int dayOfWeek) {
         int result = 0;
         if (dayOfWeek == Calendar.SUNDAY) {
@@ -109,6 +116,43 @@ public class CalendarAdapter_junbeom extends BaseAdapter {
             result = 6;
         }
         return result;
+    }
+
+    private int getMonthLastDay(int year, int month) {
+        switch (month) {
+            case 0:
+            case 2:
+            case 4:
+            case 6:
+            case 7:
+            case 9:
+            case 11:
+                return (31);    //한 달이 31일인 달 계산
+
+            case 3:
+            case 5:
+            case 8:
+            case 10:
+                return (30);    //한 달이 30일인 달 계산
+
+            default:
+                if( ( (year%4 == 0) && (year%100 != 0) ) || (year%400 == 0) ) { //윤년 계산
+                    return (29);
+                } else {
+                    return (28);
+                }
+        }
+    }
+
+    public static int getFirstDayOfWeek() {
+        int startDay = Calendar.getInstance().getFirstDayOfWeek();
+        if (startDay == Calendar.SATURDAY) {
+            return Time.SATURDAY;
+        } else if (startDay == Calendar.MONDAY) {
+            return Time.MONDAY;
+        } else {
+            return Time.SUNDAY;
+        }
     }
 
     public int getCurYear() {
@@ -155,53 +199,18 @@ public class CalendarAdapter_junbeom extends BaseAdapter {
 
         itemView.setItem(items[position]);
         itemView.setLayoutParams(params);
-        itemView.setPadding(2,2,2,2);
+        itemView.setPadding(1,1,1,1);
 
-        itemView.setGravity(Gravity.LEFT);
+        itemView.setGravity(Gravity.CENTER);
 
-        if (columnIndex == 0) {
+        if (columnIndex == 0) { //일요일 빨간색
             itemView.setTextColor(Color.RED);
-        } else {
+        } else if (columnIndex == 6) {  //토요일 파란색
+            itemView.setTextColor(Color.BLUE);
+        } else { //나머지 검정색
             itemView.setTextColor(Color.BLACK);
         }
         return itemView;
-    }
-
-    public static int getFirstDayOfWeek() {
-        int startDay = Calendar.getInstance().getFirstDayOfWeek();
-        if (startDay == Calendar.SATURDAY) {
-            return Time.SATURDAY;
-        } else if (startDay == Calendar.MONDAY) {
-            return Time.MONDAY;
-        } else {
-            return Time.SUNDAY;
-        }
-    }
-
-    private int getMonthLastDay(int year, int month) {
-        switch (month) {
-            case 0:
-            case 2:
-            case 4:
-            case 6:
-            case 7:
-            case 9:
-            case 11:
-                return (31);
-
-            case 3:
-            case 5:
-            case 8:
-            case 10:
-                return (30);
-
-            default:
-                if( ( (year%4 == 0) && (year%100 != 0) ) || (year%400 == 0) ) {
-                    return (29);
-                } else {
-                    return (28);
-                }
-        }
     }
 }
 
