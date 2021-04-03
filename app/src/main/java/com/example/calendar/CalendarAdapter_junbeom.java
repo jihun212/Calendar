@@ -129,9 +129,13 @@ public class CalendarAdapter_junbeom extends BaseAdapter {
         return curMonth;
     }
 
-    public int getCurDay() {return curDay;}
+    public int getCurDay() {
+        return curDay;
+    }
 
-    public int getCurWeek() {return curWeek;}
+    public int getCurWeek() {
+        return curWeek;
+    }
 
     public int getNumColumns() {
         return 7;
