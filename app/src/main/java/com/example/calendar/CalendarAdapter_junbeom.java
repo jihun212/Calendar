@@ -24,6 +24,8 @@ public class CalendarAdapter_junbeom extends BaseAdapter {
     int startDay;
     int curYear;
     int curMonth;
+    int curDay;
+    int curWeek;
 
     int firstDay;
     int lastDay;
@@ -91,6 +93,8 @@ public class CalendarAdapter_junbeom extends BaseAdapter {
         mStartDay = mCalendar.getFirstDayOfWeek();
         curYear = mCalendar.get(Calendar.YEAR);
         curMonth = mCalendar.get(Calendar.MONTH);
+        curDay = mCalendar.get(Calendar.DATE);
+        curWeek = mCalendar.get(Calendar.DAY_OF_WEEK);
         lastDay = getMonthLastDay(curYear, curMonth);
 
         int diff = mStartDay - Calendar.SUNDAY -1;
@@ -124,6 +128,10 @@ public class CalendarAdapter_junbeom extends BaseAdapter {
     public int getCurMonth() {
         return curMonth;
     }
+
+    public int getCurDay() {return curDay;}
+
+    public int getCurWeek() {return curWeek;}
 
     public int getNumColumns() {
         return 7;
