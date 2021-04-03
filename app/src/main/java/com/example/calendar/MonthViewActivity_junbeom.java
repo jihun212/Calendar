@@ -68,7 +68,7 @@ public class MonthViewActivity_junbeom extends AppCompatActivity {
                 final int year = curYear;
                 final int week = curWeek;
                 //String day_full = year + "년 "+ (month+1)  + "월 " + day + "일 " + week + "요일";
-                String day_full = year + "년 "+ (month+1)  + "월 " + day + "일 " + week + "요일";
+                String day_full = year + "년 "+ (month+1)  + "월 " + day + "일 ";
 
                 Toast myToast = Toast.makeText(MonthViewActivity_junbeom.this,day_full, Toast.LENGTH_LONG);
                 myToast.show();
