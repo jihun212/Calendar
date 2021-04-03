@@ -7,11 +7,6 @@ import android.util.AttributeSet;
 
 import androidx.appcompat.widget.AppCompatTextView;
 
-/**
- * 일자에 표시하는 텍스트뷰 정의
- *
- * @author Mike
- */
 public class MonthItemView extends AppCompatTextView {
 
     private MonthItem item;
