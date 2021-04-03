@@ -20,26 +20,32 @@ public class MainActivity_junbeom extends AppCompatActivity {
     int year;
     int month;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_junbeom);
 
+        /*
         Intent intent = getIntent();
-
         year = intent.getIntExtra("year", -1);
         month = intent.getIntExtra("month", -1);
 
-        Calendar cal = Calendar.getInstance();
-        cal.set(2021,3,1);
-        int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK);
+        if (year == -1 || month == -1) {
+            year = Calendar.getInstance().get(Calendar.YEAR);
+            month = Calendar.getInstance().get(Calendar.MONTH);
+        }
+
+         */
+
+        //Calendar cal = Calendar.getInstance();
+        //cal.set(2021,3,1);
+        //int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK);
 
         //월별 캘린더뷰 객체 참조
-        gv_calendar = findViewById(R.id.monthView);
+        gv_calendar = findViewById(R.id.gv_calendar);
         monthViewAdapter = new MonthAdapter_junbeom(this);
         gv_calendar.setAdapter(monthViewAdapter);
-        
+
         //리스너 설정
         gv_calendar.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -54,7 +60,48 @@ public class MainActivity_junbeom extends AppCompatActivity {
         TextView yearMonthTV = findViewById(R.id.year_month);
         yearMonthTV.setText(year + "년" + month + "월");
 
+        Button prevBtn = findViewById(R.id.previous);
+        prevBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                monthViewAdapter.setPreviousMonth();
+                monthViewAdapter.notifyDataSetChanged();
 
+                /*
+                Intent intent = new Intent(getApplicationContext(),
+                        MainActivity_junbeom.class);
+                intent.putExtra("year", year);
+                intent.putExtra("month", month-1);
+
+                startActivity(intent);
+                finish();
+
+                 */
+            }
+        });
+
+        Button nextBtn = findViewById(R.id.next);
+        nextBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                monthViewAdapter.setNextMonth();
+                monthViewAdapter.notifyDataSetChanged();
+
+                /*
+                Intent intent = new Intent(getApplicationContext(),
+                        MainActivity_junbeom.class);
+                intent.putExtra("year", year);
+                intent.putExtra("month", month+1);
+
+                startActivity(intent);
+                finish();
+
+                 */
+            }
+        });
+
+
+        /*
         //이전 월로 넘어가는 이벤트 처리
         Button prevBtn = findViewById(R.id.previous);
         prevBtn.setOnClickListener(new View.OnClickListener() {
@@ -67,6 +114,7 @@ public class MainActivity_junbeom extends AppCompatActivity {
 
                 startActivity(intent);
                 finish();
+
             };
         });
 
@@ -84,5 +132,7 @@ public class MainActivity_junbeom extends AppCompatActivity {
                 finish();
             }
         });
+
+         */
     }
 }

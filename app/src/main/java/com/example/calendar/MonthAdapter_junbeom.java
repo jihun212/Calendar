@@ -50,6 +50,18 @@ public class MonthAdapter_junbeom extends BaseAdapter {
         resetDayNumbers();
     }
 
+    public void setPreviousMonth() {
+        mCalendar.add(Calendar.MONTH, -1);
+        recalculate();
+        resetDayNumbers();
+    }
+
+    public void setNextMonth() {
+        mCalendar.add(Calendar.MONTH, -1);
+        recalculate();
+        resetDayNumbers();
+    }
+
     private void resetDayNumbers() {
         for (int i = 0; i < 42; i++) {
             int dayNumber = (i+1) - firstDay;
@@ -74,6 +86,7 @@ public class MonthAdapter_junbeom extends BaseAdapter {
         int diff = mStartDay - Calendar.SUNDAY -1;
         startDay = getFirstDayOfWeek();
     }
+
 
     private int getFirstDay(int dayOfWeek) {
         int result = 0;
@@ -138,7 +151,7 @@ public class MonthAdapter_junbeom extends BaseAdapter {
         } else {
             itemView.setTextColor(Color.BLACK);
         }
-    return itemView;
+        return itemView;
     }
 
     public static int getFirstDayOfWeek() {
