@@ -3,7 +3,6 @@ package com.example.calendar;
 import android.content.Context;
 import android.graphics.Color;
 import android.text.format.Time;
-import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,14 +13,13 @@ import java.util.Calendar;
 
 //BaseAdapter를 상속하여 새로운 어댑터 정의
 public class CalendarAdapter extends BaseAdapter {
-    public static final String TAG = "MonthAdapter";
     Context mContext;
 
     private MonthItem[] items;  // MonthItem.java 참조
-    private int countColumn = 7;    // 1주일
 
     int mStartDay;
     int startDay;
+
     int curYear;    // 현재년도
     int curMonth;   // 현재달
 
@@ -167,6 +165,7 @@ public class CalendarAdapter extends BaseAdapter {
         GridView.LayoutParams params = new GridView.LayoutParams(
                 GridView.LayoutParams.MATCH_PARENT, 120);
         
+        int countColumn = 7;    // 1주일 = 7일
         int columnIndex = position % countColumn;
         itemView.setItem(items[position]);  // 날짜 정보
         itemView.setLayoutParams(params);   // 그리드 뷰 칸의 각 속성 크기 조정
