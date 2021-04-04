@@ -29,8 +29,9 @@
             android:layout_marginLeft="40dp"
             android:backgroundTint="@color/Gray"
 
-            android:text="이전달"
+            android:text="@string/이전달"
             android:textSize="20dp" />
+<!--        가로버전, 세로 버전일때 동일한 비율이기 위해 sp가 아닌 dp를 사용한다-->
 
         <TextView
             android:id="@+id/year_month"
@@ -41,9 +42,10 @@
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
 
-            android:text=" 년 월"
+            android:text="@string/년월"
             android:textColor="@color/black"
-            android:textSize="10dp" />
+            android:textSize="12dp" />
+<!--        가로버전, 세로 버전일때 동일한 비율이기 위해 sp가 아닌 dp를 사용한다-->
 
 <!--        다음달 버튼생성-->
 <!--        1. 두개의 버튼과 한개의 텍스트뷰의 비율을 일정하게 하기 위해 layout_weight을 "1"로 주었다.-->
@@ -58,9 +60,10 @@
             android:layout_marginRight="40dp"
             android:backgroundTint="@color/Gray"
 
-
-            android:text="다음달"
+            android:text="@string/다음달"
             android:textSize="20dp" />
+<!--        가로버전, 세로 버전일때 동일한 비율이기 위해 sp가 아닌 dp를 사용한다-->
+
     </LinearLayout>
 
     <LinearLayout
@@ -76,66 +79,72 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
 
-            android:text="일"
+            android:text="@string/일"
             android:textSize="20dp"
             android:textColor="@color/Red"
 
             android:gravity="center" />
+        <!--        가로버전, 세로 버전일때 동일한 비율이기 위해 sp가 아닌 dp를 사용한다-->
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
 
-            android:text="월"
+            android:text="@string/월"
             android:textSize="20dp"
             android:textColor="@color/black"
 
             android:gravity="center" />
+        <!--        가로버전, 세로 버전일때 동일한 비율이기 위해 sp가 아닌 dp를 사용한다-->
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
 
-            android:text="화"
+            android:text="@string/화"
             android:textSize="20dp"
             android:textColor="@color/black"
 
             android:gravity="center" />
+        <!--        가로버전, 세로 버전일때 동일한 비율이기 위해 sp가 아닌 dp를 사용한다-->
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
 
-            android:text="수"
+            android:text="@string/수"
             android:textSize="20dp"
             android:textColor="@color/black"
 
             android:gravity="center" />
+        <!--        가로버전, 세로 버전일때 동일한 비율이기 위해 sp가 아닌 dp를 사용한다-->
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
 
-            android:text="목"
+            android:text="@string/목"
             android:textSize="20dp"
             android:textColor="@color/black"
 
             android:gravity="center" />
+        <!--        가로버전, 세로 버전일때 동일한 비율이기 위해 sp가 아닌 dp를 사용한다-->
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
 
-            android:text="금"
+            android:text="@string/금"
             android:textSize="20dp"
             android:textColor="@color/black"
 
             android:gravity="center" />
+        <!--        가로버전, 세로 버전일때 동일한 비율이기 위해 sp가 아닌 dp를 사용한다-->
 
 <!--        토요일 생성-->
 <!--        토요일 파란색 색상 설정-->
@@ -144,11 +153,13 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
 
-            android:text="토"
+            android:text="@string/토"
             android:textSize="20dp"
             android:textColor="@color/Blue"
 
             android:gravity="center" />
+        <!--        가로버전, 세로 버전일때 동일한 비율이기 위해 sp가 아닌 dp를 사용한다-->
+
     </LinearLayout>
 
 <!--    그리드뷰 생성-->
@@ -164,6 +175,5 @@
         android:stretchMode="columnWidth"
         android:verticalSpacing="0dp"
         android:horizontalSpacing="0dp" />
-
 </LinearLayout>
 
