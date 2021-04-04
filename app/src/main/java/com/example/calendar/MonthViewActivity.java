@@ -55,6 +55,7 @@ public class MonthViewActivity extends AppCompatActivity {
                 // final의 기능 : 지역변수를 상수화 시켜준다
                 // 해당 월에 맞는 토스트 메시지를 보여줘야 하기때문에 
                 // String day_full 에서 (month+1)을 해준다
+                // 날짜가 표시되지 않는 공간에 대해서는 토스트메세지를 출력하지 않는다.
                 curYear = monthViewAdapter.getCurYear();
                 curMonth = monthViewAdapter.getCurMonth();
                 final int month = curMonth;
@@ -70,6 +71,7 @@ public class MonthViewActivity extends AppCompatActivity {
 
         // 년, 월 텍스트 가져오기
         year_month = findViewById(R.id.year_month);
+        year_month.setSelected(true);
         setMonthText();
 
         // 이전 월로 넘어가는 버튼이벤트 처리

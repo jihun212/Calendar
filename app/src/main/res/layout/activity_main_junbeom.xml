@@ -18,7 +18,7 @@
 
 <!--        이전달 버튼생성-->
 <!--        1. 두개의 버튼과 한개의 텍스트뷰의 비율을 일정하게 하기 위해 layout_weight을 "1"로 주었다.-->
-<!--        2. 버튼 왼쪽에 여백을 주기 위해 layout_marginLeft="40dp"-->
+<!--        2. 버튼 왼쪽에 여백을 주기 위해 layout_marginLeft="20dp"-->
 <!--        3. 가시성을 높이기 위해서 textSize="20dp"-->
         <Button
             android:id="@+id/previous"
@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:layout_marginLeft="40dp"
+            android:layout_marginLeft="20dp"
             android:backgroundTint="@color/Gray"
 
             android:text="@string/이전달"
@@ -39,8 +39,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
 
             android:text="@string/년월"
             android:textColor="@color/black"
@@ -49,7 +49,7 @@
 
 <!--        다음달 버튼생성-->
 <!--        1. 두개의 버튼과 한개의 텍스트뷰의 비율을 일정하게 하기 위해 layout_weight을 "1"로 주었다.-->
-<!--        2. 버튼 왼쪽에 여백을 주기 위해 layout_marginright="40dp"-->
+<!--        2. 버튼 왼쪽에 여백을 주기 위해 layout_marginright="20dp"-->
 <!--        3. 가시성을 높이기 위해서 textSize="20dp"-->
         <Button
             android:id="@+id/next"
@@ -57,7 +57,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:layout_marginRight="40dp"
+            android:layout_marginRight="20dp"
             android:backgroundTint="@color/Gray"
 
             android:text="@string/다음달"
@@ -74,10 +74,14 @@
 
 <!--        일요일 생성-->
 <!--        일요일 빨간색 색상 설정-->
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+
+            android:singleLine="true"
+            android:ellipsize="marquee"
 
             android:text="@string/일"
             android:textSize="20dp"
