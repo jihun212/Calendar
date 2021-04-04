@@ -9,8 +9,6 @@ import androidx.appcompat.widget.AppCompatTextView;
 
 public class MonthItemView extends AppCompatTextView {
 
-    private MonthItem item;
-
     public MonthItemView(Context context) {
         super(context);
         init();
@@ -25,13 +23,7 @@ public class MonthItemView extends AppCompatTextView {
         setBackgroundColor(Color.WHITE);
     }
 
-    public MonthItem getItem() {
-        return item;
-    }
-
     public void setItem(MonthItem item) {
-        this.item = item;
-
         int day = item.getDay();
         if (day != 0) {
             setText(String.valueOf(day));

@@ -1,8 +1,10 @@
 package com.example.calendar;
 
-//일자 정보를 담기 위한 클래스 정의
+// 한 개월의 일별 데이터
+// 일자 정보를 담기 위한 MonthItem 추가클래스 정의
+// 뷰의 초기값 설정
 public class MonthItem {
-    private int dayValue;
+    private final int dayValue;
 
     public MonthItem(int day) {
         dayValue = day;
@@ -10,10 +12,6 @@ public class MonthItem {
 
     public int getDay() {
         return dayValue;
-    }
-
-    public void setDay(int day) {
-        this.dayValue = day;
     }
 }
 

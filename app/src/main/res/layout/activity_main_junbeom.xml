@@ -16,6 +16,10 @@
         android:background="@color/Mint"
         android:gravity="center">
 
+<!--        이전달 버튼생성-->
+<!--        1. 두개의 버튼과 한개의 텍스트뷰의 비율을 일정하게 하기 위해 layout_weight을 "1"로 주었다.-->
+<!--        2. 버튼 왼쪽에 여백을 주기 위해 layout_marginLeft="40dp"-->
+<!--        3. 가시성을 높이기 위해서 textSize="20dp"-->
         <Button
             android:id="@+id/previous"
             android:layout_width="wrap_content"
@@ -41,6 +45,10 @@
             android:textColor="@color/black"
             android:textSize="10dp" />
 
+<!--        다음달 버튼생성-->
+<!--        1. 두개의 버튼과 한개의 텍스트뷰의 비율을 일정하게 하기 위해 layout_weight을 "1"로 주었다.-->
+<!--        2. 버튼 왼쪽에 여백을 주기 위해 layout_marginright="40dp"-->
+<!--        3. 가시성을 높이기 위해서 textSize="20dp"-->
         <Button
             android:id="@+id/next"
             android:layout_width="wrap_content"
@@ -61,6 +69,8 @@
         android:background="@color/Yellow"
         android:orientation="horizontal">
 
+<!--        일요일 생성-->
+<!--        일요일 빨간색 색상 설정-->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -127,6 +137,8 @@
 
             android:gravity="center" />
 
+<!--        토요일 생성-->
+<!--        토요일 파란색 색상 설정-->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -139,6 +151,8 @@
             android:gravity="center" />
     </LinearLayout>
 
+<!--    그리드뷰 생성-->
+<!--    한 주는 7일 이기 때문에 numColumns="7"-->
     <GridView
         android:id="@+id/gv_calendar"
         android:layout_width="wrap_content"
