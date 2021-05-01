@@ -10,4 +10,6 @@
     <string name="목">목</string>
     <string name="금">금</string>
     <string name="토">토</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
