@@ -1,4 +1,4 @@
-package com.example.calendar;
+package com.example.calendar.CALENDAR;
 
 import android.content.Context;
 import android.graphics.Color;
