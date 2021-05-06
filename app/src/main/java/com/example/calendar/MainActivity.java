@@ -13,8 +13,8 @@ import androidx.viewpager.widget.ViewPager;
 
 //import com.example.calendar.CALENDAR.dCalendarPagerAdapter;
 import com.example.calendar.CALENDAR.mCalendarPagerAdapter;
-import com.example.calendar.CALENDAR.wCalendarFrag;
-import com.example.calendar.CALENDAR.wCalendarPagerAdapter;
+//import com.example.calendar.CALENDAR.wCalendarFrag;
+//import com.example.calendar.CALENDAR.wCalendarPagerAdapter;
 
 import java.util.Calendar;
 
@@ -138,49 +138,49 @@ public class MainActivity extends AppCompatActivity {
         ymBar.setTitle(y +"년 "+ m +"월 ");
         ymBar.setSubtitle("1주차");                       // 주간 달력에도 년,월 값은 필요로 함
 
-        fpAdapter = new wCalendarPagerAdapter(getSupportFragmentManager(),y,m);      // 페이저어댑터 정의
-        wCalViewPager.setAdapter(fpAdapter);                               // 뷰페이저에 어댑터 장착
-        wCalViewPager.setCurrentItem(0);                               // 앱 실행시 제일 처음 보여주는 페이지 설정
+        //fpAdapter = new wCalendarPagerAdapter(getSupportFragmentManager(),y,m);      // 페이저어댑터 정의
+        //wCalViewPager.setAdapter(fpAdapter);                               // 뷰페이저에 어댑터 장착
+        //wCalViewPager.setCurrentItem(0);                               // 앱 실행시 제일 처음 보여주는 페이지 설정
 
-        wCalViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() { // 사용자가 화면을 스와이프할때,
-            @Override
-            public void onPageSelected(int position) {
-                weekDATA = position;
-                ymBar.setSubtitle(weekDATA+1 + "주차");
-                wCalendarFrag.setWeekDATA(weekDATA);
-            }
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) { }
-            @Override
-            public void onPageScrollStateChanged(int state) { }
-        });
-    }
+//        wCalViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() { // 사용자가 화면을 스와이프할때,
+//            @Override
+//            public void onPageSelected(int position) {
+//                weekDATA = position;
+//                ymBar.setSubtitle(weekDATA+1 + "주차");
+//                wCalendarFrag.setWeekDATA(weekDATA);
+//            }
+//            @Override
+//            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) { }
+//            @Override
+//            public void onPageScrollStateChanged(int state) { }
+//        });
+//    }
 
-    public void setDailyCalendar(int pos){             // 주간 달력을 표시하는 메소드
-        mCalViewPager.setVisibility(View.GONE);
-        wCalViewPager.setVisibility(View.GONE);
-        dCalViewPager.setVisibility(View.VISIBLE);             // 월간 달력하고 반대로 설정
-
-        int y = pos/12;
-        int m = getMonthfromPos(pos);
-
-        ymBar.setTitle(y +"년 "+ m +"월 ");
-        ymBar.setSubtitle("일간 달력");
-
-        fpAdapter = new dCalendarPagerAdapter(getSupportFragmentManager(),y,m);      // 페이저어댑터 정의
-        dCalViewPager.setAdapter(fpAdapter);                               // 뷰페이저에 어댑터 장착
-        dCalViewPager.setCurrentItem(0);                               // 앱 실행시 제일 처음 보여주는 페이지 설정
-
-        dCalViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() { // 사용자가 화면을 스와이프할때,
-            @Override
-            public void onPageSelected(int position) { }
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) { }
-            @Override
-            public void onPageScrollStateChanged(int state) { }
-        });
-    }
-
+//    public void setDailyCalendar(int pos){             // 주간 달력을 표시하는 메소드
+//        mCalViewPager.setVisibility(View.GONE);
+//        wCalViewPager.setVisibility(View.GONE);
+//        //dCalViewPager.setVisibility(View.VISIBLE);             // 월간 달력하고 반대로 설정
+//
+//        int y = pos/12;
+//        int m = getMonthfromPos(pos);
+//
+//        ymBar.setTitle(y +"년 "+ m +"월 ");
+//        ymBar.setSubtitle("일간 달력");
+//
+//        fpAdapter = new dCalendarPagerAdapter(getSupportFragmentManager(),y,m);      // 페이저어댑터 정의
+//        dCalViewPager.setAdapter(fpAdapter);                               // 뷰페이저에 어댑터 장착
+//        dCalViewPager.setCurrentItem(0);                               // 앱 실행시 제일 처음 보여주는 페이지 설정
+//
+//        dCalViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() { // 사용자가 화면을 스와이프할때,
+//            @Override
+//            public void onPageSelected(int position) { }
+//            @Override
+//            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) { }
+//            @Override
+//            public void onPageScrollStateChanged(int state) { }
+//        });
+//    }
+//
     public int getMonthfromPos(int pos){        // 개발 편의를 위한 짧은 메소드. 포지션 값에서 월 값을 추출함
         if((pos%12)==0) return 1;
         else return (pos%12)+1;
