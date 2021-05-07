@@ -9,10 +9,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentStatePagerAdapter;
-//import androidx.viewpager.widget.ViewPager;
-import androidx.viewpager.widget.PagerAdapter;
-import androidx.viewpager2.adapter.FragmentStateAdapter;
-import androidx.viewpager2.widget.ViewPager2;
+import androidx.viewpager.widget.ViewPager;
 
 import com.example.calendar.CALENDAR.mCalendarPagerAdapter;
 import com.example.calendar.CALENDAR.wCalendarPagerAdapter;
@@ -20,15 +17,12 @@ import com.example.calendar.CALENDAR.wCalendarFrag;
 
 import java.util.Calendar;
 
-
 public class MainActivity extends AppCompatActivity {
 
-    ViewPager2 mCalViewPager, wCalViewPager;                           // 월간달력과 주간달력 뷰페이저 생성
-    FragmentStatePagerAdapter fpAdapter;                                // 뷰페이저와 페이저어댑터 생성
+    ViewPager mCalViewPager, wCalViewPager;                            // 월간달력과 주간달력 뷰페이저 생성
+    FragmentStatePagerAdapter adapter;                                       // 뷰페이저와 페이저어댑터 생성
     Calendar javaCalendar;                                              // 실행 당일의 날짜를 따오기 위한 자바캘린더
-
     int curPosition, mode, is1 = 0, is2 = 0, weekDATA;
-
     ActionBar ymBar;                                                    // 앱 최상단 앱바 생성
 
     @Override
@@ -36,15 +30,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);                         // activity_main
 
-
         mCalViewPager = findViewById(R.id.vpPager);
-        wCalViewPager = findViewById(R.id.vpPager2);
-
-        //ViewPager2 mCalViewPager = findViewById(R.id.vpPager);
-        //ViewPager2 wCalViewPager = findViewById(R.id.vpPager2);
-
-        //mCalViewPager = findViewById(R.id.vpPager);
-        //wCalViewPager = findViewById(R.id.vpPager2);                    // 뷰페이저 장착
+        wCalViewPager = findViewById(R.id.vpPager2);                    // 뷰페이저 장착
 
         ymBar=getSupportActionBar();
         ymBar.setTitle("초기 앱바 타이틀");                                // 앱바 생성
@@ -96,25 +83,23 @@ public class MainActivity extends AppCompatActivity {
         mCalViewPager.setVisibility(View.VISIBLE);
         wCalViewPager.setVisibility(View.GONE);
         // 주간달력 뷰는 GONE 상태로, 월간은 VISIBLE 상태로 전환
+
         int y = pos/12;
         int m = getMonthfromPos(pos);
 
         ymBar.setTitle(y +"년 "+ m +"월 ");
-        ymBar.setSubtitle("월간 달력");                   // 입력받은 포지션 값을 해석하고 앱바 타이틀 조정
+        //ymBar.setSubtitle("월간 달력");                   // 입력받은 포지션 값을 해석하고 앱바 타이틀 조정
 
         if(is2 != 0)                                    // 중요! 뷰페이저 생성은 1회성으로 한정함.
             mCalViewPager.setCurrentItem(pos);
         else{
             is2++;
-
-            FragmentStateAdapter adapter = new mCalendarPagerAdapter(this);
+            adapter = new mCalendarPagerAdapter(getSupportFragmentManager());
             mCalViewPager.setAdapter(adapter);
-
             //fpAdapter = new mCalendarPagerAdapter(getSupportFragmentManager());      // 페이저어댑터 정의
             //mCalViewPager.setAdapter(fpAdapter);                                     // 뷰페이저에 어댑터 장착
-
             mCalViewPager.setCurrentItem(pos);                                       // 앱 실행시 제일 처음 보여주는 페이지 설정
-            mCalViewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() { // 사용자가 화면을 스와이프할때,
+            mCalViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() { // 사용자가 화면을 스와이프할때,
                 @Override
                 public void onPageSelected(int position) {              // 스와이프 후 달력이 표현하는 월에 따라 앱바 변경
                     int year = position/12;
@@ -142,17 +127,20 @@ public class MainActivity extends AppCompatActivity {
         int m = getMonthfromPos(pos);
 
         ymBar.setTitle(y +"년 "+ m +"월 ");
-        ymBar.setSubtitle("1주차");                       // 주간 달력에도 년,월 값은 필요로 함
+        //ymBar.setSubtitle("1주차");                       // 주간 달력에도 년,월 값은 필요로 함
 
-        FragmentStateAdapter adapter2 = new wCalendarPagerAdapter(this,y,m);
-        wCalViewPager.setAdapter(adapter2);
+        adapter = new wCalendarPagerAdapter(getSupportFragmentManager(),y,m);
+        wCalViewPager.setAdapter(adapter);
+
+        //FragmentStateAdapter adapter2 = new wCalendarPagerAdapter(this,y,m);
+        //wCalViewPager.setAdapter(adapter2);
 
         //fpAdapter = new wCalendarPagerAdapter(getSupportFragmentManager(),y,m);         // 페이저어댑터 정의
         //wCalViewPager.setAdapter(fpAdapter);                                            // 뷰페이저에 어댑터 장착
 
         wCalViewPager.setCurrentItem(0);                                                // 앱 실행시 제일 처음 보여주는 페이지 설정
 
-        wCalViewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() { // 사용자가 화면을 스와이프할때,
+        wCalViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() { // 사용자가 화면을 스와이프할때,
             @Override
             public void onPageSelected(int position) {
                 weekDATA = position;
