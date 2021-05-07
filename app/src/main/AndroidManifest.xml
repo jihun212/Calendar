@@ -15,8 +15,7 @@
         android:theme="@style/Theme.Calendar">
 
 
-        <activity android:name=".MainActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
