@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import com.example.calendar.R;
 
-
 class CalendarBaseAdapter extends BaseAdapter {
     private Context context;
     private int layout;

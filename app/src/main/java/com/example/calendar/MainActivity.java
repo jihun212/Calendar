@@ -10,6 +10,8 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 //import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.calendar.CALENDAR.mCalendarPagerAdapter;
@@ -32,10 +34,17 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main);                         // activity_main
+
 
         mCalViewPager = findViewById(R.id.vpPager);
-        wCalViewPager = findViewById(R.id.vpPager2);                    // 뷰페이저 장착
+        wCalViewPager = findViewById(R.id.vpPager2);
+
+        //ViewPager2 mCalViewPager = findViewById(R.id.vpPager);
+        //ViewPager2 wCalViewPager = findViewById(R.id.vpPager2);
+
+        //mCalViewPager = findViewById(R.id.vpPager);
+        //wCalViewPager = findViewById(R.id.vpPager2);                    // 뷰페이저 장착
 
         ymBar=getSupportActionBar();
         ymBar.setTitle("초기 앱바 타이틀");                                // 앱바 생성
@@ -97,8 +106,13 @@ public class MainActivity extends AppCompatActivity {
             mCalViewPager.setCurrentItem(pos);
         else{
             is2++;
-            fpAdapter = new mCalendarPagerAdapter(getSupportFragmentManager());      // 페이저어댑터 정의
-            mCalViewPager.setAdapter(fpAdapter);                                     // 뷰페이저에 어댑터 장착
+
+            FragmentStateAdapter adapter = new mCalendarPagerAdapter(this);
+            mCalViewPager.setAdapter(adapter);
+
+            //fpAdapter = new mCalendarPagerAdapter(getSupportFragmentManager());      // 페이저어댑터 정의
+            //mCalViewPager.setAdapter(fpAdapter);                                     // 뷰페이저에 어댑터 장착
+
             mCalViewPager.setCurrentItem(pos);                                       // 앱 실행시 제일 처음 보여주는 페이지 설정
             mCalViewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() { // 사용자가 화면을 스와이프할때,
                 @Override
@@ -130,8 +144,12 @@ public class MainActivity extends AppCompatActivity {
         ymBar.setTitle(y +"년 "+ m +"월 ");
         ymBar.setSubtitle("1주차");                       // 주간 달력에도 년,월 값은 필요로 함
 
-        fpAdapter = new wCalendarPagerAdapter(getSupportFragmentManager(),y,m);         // 페이저어댑터 정의
-        wCalViewPager.setAdapter(fpAdapter);                                            // 뷰페이저에 어댑터 장착
+        FragmentStateAdapter adapter2 = new wCalendarPagerAdapter(this,y,m);
+        wCalViewPager.setAdapter(adapter2);
+
+        //fpAdapter = new wCalendarPagerAdapter(getSupportFragmentManager(),y,m);         // 페이저어댑터 정의
+        //wCalViewPager.setAdapter(fpAdapter);                                            // 뷰페이저에 어댑터 장착
+
         wCalViewPager.setCurrentItem(0);                                                // 앱 실행시 제일 처음 보여주는 페이지 설정
 
         wCalViewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() { // 사용자가 화면을 스와이프할때,
