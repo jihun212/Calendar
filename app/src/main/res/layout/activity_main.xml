@@ -4,6 +4,41 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#4CAF50"
+        android:columnCount="7">
+
+        <TextView android:text="일"
+            android:gravity="center_horizontal"
+            android:layout_columnWeight="1" />
+
+        <TextView android:text="월"
+            android:gravity="center_horizontal"
+            android:layout_columnWeight="1" />
+
+        <TextView android:text="화"
+            android:gravity="center_horizontal"
+            android:layout_columnWeight="1"/>
+
+        <TextView android:text="수"
+            android:gravity="center_horizontal"
+            android:layout_columnWeight="1"/>
+
+        <TextView android:text="목"
+            android:gravity="center_horizontal"
+            android:layout_columnWeight="1"/>
+
+        <TextView android:text="금"
+            android:gravity="center_horizontal"
+            android:layout_columnWeight="1"/>
+
+        <TextView android:text="토"
+            android:gravity="center_horizontal"
+            android:layout_columnWeight="1"/>
+    </GridLayout>
+    
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/vpPager"
         android:layout_width="match_parent"
