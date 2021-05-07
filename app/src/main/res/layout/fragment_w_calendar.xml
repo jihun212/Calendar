@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#4CAF50"
+        android:columnCount="7">
+
+        <TextView android:text="일"
+            android:gravity="center_horizontal"
+            android:layout_columnWeight="1"/>
+
+        <TextView android:text="월"
+            android:gravity="center_horizontal"
+            android:layout_columnWeight="1" />
+
+        <TextView android:text="화"
+            android:gravity="center_horizontal"
+            android:layout_columnWeight="1"/>
+
+        <TextView android:text="수"
+            android:gravity="center_horizontal"
+            android:layout_columnWeight="1"/>
+
+        <TextView android:text="목"
+            android:gravity="center_horizontal"
+            android:layout_columnWeight="1"/>
+
+        <TextView android:text="금"
+            android:gravity="center_horizontal"
+            android:layout_columnWeight="1"/>
+
+        <TextView android:text="토"
+            android:gravity="center_horizontal"
+            android:layout_columnWeight="1"/>
+    </GridLayout>
+
+    <GridView
+        android:id="@+id/wCalendarGridView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:numColumns="7"
+        android:layout_weight="1"/>
+
+</LinearLayout>

@@ -88,8 +88,6 @@ class CalendarData {
     }
 }
 
-
-
 //
 //public class MonthCalendarAdapter extends FragmentStateAdapter {
 //    private static int NUM_ITEMS=100;
