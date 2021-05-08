@@ -83,8 +83,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void setMonthlyCalendar(int pos) {            // 월간달력 표시하는 메소드. 입력받은 포지션에 따라 달력 표시
-        //mCalViewPager.setVisibility(View.VISIBLE);
-        //wCalViewPager.setVisibility(View.GONE);
+        mCalViewPager.setVisibility(View.VISIBLE);
+        wCalViewPager.setVisibility(View.GONE);
         // 주간달력 뷰는 GONE 상태로, 월간은 VISIBLE 상태로 전환
 
         int y = pos/12;
@@ -99,10 +99,7 @@ public class MainActivity extends AppCompatActivity {
             is2++;
             adapter = new mCalendarPagerAdapter(this);// 페이저어댑터 정의
             mCalViewPager.setAdapter(adapter);// 뷰페이저에 어댑터 장착
-
-            //mCalViewPager.setOrientation(ViewPager2.ORIENTATION_VERTICAL);
-
-            mCalViewPager.setCurrentItem(pos);                                       // 앱 실행시 제일 처음 보여주는 페이지 설정
+            mCalViewPager.setCurrentItem(pos,false);                                       // 앱 실행시 제일 처음 보여주는 페이지 설정
             mCalViewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() { // 사용자가 화면을 스와이프할때,
                 @Override
                 public void onPageSelected(int position) {              // 스와이프 후 달력이 표현하는 월에 따라 앱바 변경
@@ -112,10 +109,10 @@ public class MainActivity extends AppCompatActivity {
                     ymBar.setTitle(year+"년 "+month+"월 ");
                     curPosition = position;
                 }
-//                @Override
-//                public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) { }
-//                @Override
-//                public void onPageScrollStateChanged(int state) { }
+                @Override
+                public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) { }
+                @Override
+                public void onPageScrollStateChanged(int state) { }
             });
         }
     }

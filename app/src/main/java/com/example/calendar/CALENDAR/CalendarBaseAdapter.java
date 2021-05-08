@@ -47,15 +47,14 @@ class CalendarBaseAdapter extends BaseAdapter {
 
 
         if(position != 0 && (position + 1) %7 == 0)
-            tv.setTextColor(context.getResources().getColor(R.color.skyblue));
+            tv.setTextColor(context.getResources().getColor(R.color.Blue));
 
         if(position % 7 == 0)
-            tv.setTextColor(context.getResources().getColor(R.color.red));          // 토요일, 일요일 여부 파악 후 텍스트 색상 변경
+            tv.setTextColor(context.getResources().getColor(R.color.Red));          // 토요일, 일요일 여부 파악 후 텍스트 색상 변경
 
         tv.setText(data[position]);
         tv.setGravity(Gravity.CENTER);
         tv.setHeight(parent.getHeight()/6);
-        tv.setBackgroundColor(context.getResources().getColor(R.color.white));
         return tv;
     }
 }
