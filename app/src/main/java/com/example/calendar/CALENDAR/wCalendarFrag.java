@@ -1,6 +1,5 @@
 package com.example.calendar.CALENDAR;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -11,11 +10,9 @@ import android.view.ViewGroup;
 import android.widget.*;
 
 import com.example.calendar.R;
-//import com.example.calendar.scheduleActivity;
 
 public class wCalendarFrag extends Fragment {
 
-    //public static final int REQUEST_CODE_MENU = 101;
     private int year;
     private int month;
     private int week;

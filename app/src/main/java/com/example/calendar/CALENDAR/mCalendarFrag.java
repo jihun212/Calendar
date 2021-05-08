@@ -1,6 +1,5 @@
 package com.example.calendar.CALENDAR;
 
-import android.content.Intent;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 
@@ -10,11 +9,9 @@ import android.view.ViewGroup;
 import android.widget.*;
 
 import com.example.calendar.R;
-//import com.example.calendar.scheduleActivity;
 
 public class mCalendarFrag extends Fragment {
 
-    //public static final int REQUEST_CODE_MENU = 101;
     private int year;
     private int month;
     String[] items;
@@ -33,7 +30,6 @@ public class mCalendarFrag extends Fragment {
         cal.setCalendar(year, month);                   // 주어진 년,월 데이터를 토대로 객체에 달력 데이터 주입
 
         items = cal.StringConverter();                  // 생성된 달력 데이터를 문자열 배열에 삽입
-
 
         GridView gView = calView.findViewById(R.id.mCalendarGridView);  // calView 에 들어갈 그리드뷰 생성
         CalendarBaseAdapter adapt = new CalendarBaseAdapter(getActivity(),android.R.layout.simple_list_item_1,items);   // base 어댑터 생성

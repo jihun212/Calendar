@@ -1,17 +1,23 @@
 package com.example.calendar.CALENDAR;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
+import androidx.lifecycle.Lifecycle;
+import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-public class mCalendarPagerAdapter extends FragmentStatePagerAdapter {
+import com.google.android.material.appbar.AppBarLayout;
 
-    public mCalendarPagerAdapter(FragmentManager fm) {
-        super(fm,BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+public class mCalendarPagerAdapter extends FragmentStateAdapter {
+
+    public mCalendarPagerAdapter(FragmentActivity fa) {
+        super(fa);
     }
 
     @Override
-    public Fragment getItem(int position) {
+    public Fragment createFragment(int position) {
 
         int year = position/12;
         int month=0;
@@ -21,12 +27,12 @@ public class mCalendarPagerAdapter extends FragmentStatePagerAdapter {
         else
             month=(position%12)+1;
 
-        Fragment calFrag=new mCalendarFrag(year,month);
+        Fragment calFrag = new mCalendarFrag(year,month);
         return calFrag;
     }
 
     @Override
-    public int getCount() {
+    public int getItemCount() {
         return 50000;
     }
 }
