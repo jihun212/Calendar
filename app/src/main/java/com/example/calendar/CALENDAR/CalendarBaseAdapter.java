@@ -55,6 +55,7 @@ class CalendarBaseAdapter extends BaseAdapter {
         tv.setText(data[position]);
         tv.setGravity(Gravity.CENTER);
         tv.setHeight(parent.getHeight()/6);
+        tv.setBackgroundColor(context.getResources().getColor(R.color.white));
         return tv;
     }
 }
