@@ -36,22 +36,6 @@ public class mCalendarFrag extends Fragment {
 
         gView.setAdapter(adapt);// 그리드뷰에 어댑터 적용
 
-//        gView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            public void onItemClick(AdapterView<?> parent, View v,
-//                                    int position, long id) {
-//                if(items[position].equals("")){}    //터치한 부분이 빈칸일 경우 아무 행동도 하지 않게 함
-//                else {
-//                    String mon_STR = (month < 10 ? "0" + month : "" + month);
-//                    String dat_STR = (Integer.parseInt(items[position]) < 10 ? "0" + items[position] : items[position]);
-//
-//                    String Key = year + mon_STR + dat_STR;
-//                    Intent intent = new Intent(getActivity(), scheduleActivity.class);
-//                    intent.putExtra("KeyDATA",Key);
-//                    startActivityForResult(intent, REQUEST_CODE_MENU);
-//                }
-//            }
-//        });
-
         return calView;
     }
 }

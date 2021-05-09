@@ -10,7 +10,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
@@ -25,8 +24,10 @@ public class MainActivity extends AppCompatActivity {
     ViewPager2 mCalViewPager, wCalViewPager;                            // 월간달력과 주간달력 뷰페이저 생성
     FragmentStateAdapter adapter;                                       // 뷰페이저와 페이저어댑터 생성
     Calendar javaCalendar;                                              // 실행 당일의 날짜를 따오기 위한 자바캘린더
-    int curPosition, mode, is1 = 0, is2 = 0, weekDATA;
     ActionBar ymBar;                                                    // 앱 최상단 앱바 생성
+
+    int curPosition, mode, weekDATA;
+    int num1 = 0, num2 = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,14 +38,14 @@ public class MainActivity extends AppCompatActivity {
         wCalViewPager = findViewById(R.id.vpPager2);                    // 뷰페이저 장착
 
         ymBar=getSupportActionBar();
-        ymBar.setTitle("초기 앱바 타이틀");                               // 앱바 생성
+        ymBar.setTitle("앱바");                                          // 앱바 생성
 
         javaCalendar = Calendar.getInstance();                          // 캘린더 객체 생성
 
-        if(is1 == 0) {                  // 초기 실행 시, 달력 기본 포지션을 오늘 날짜에 의거하여 설정함. 1회성
+        if(num1 == 0) {                  // 초기 실행 시, 달력 기본 포지션을 오늘 날짜에 의거하여 설정함. 1회성
             curPosition = javaCalendar.get(Calendar.YEAR) * 12 + javaCalendar.get(Calendar.MONTH);
             setMonthlyCalendar(curPosition);
-            is1++;
+            num1++;
         }
     }
 
@@ -93,10 +94,10 @@ public class MainActivity extends AppCompatActivity {
         ymBar.setTitle(y +"년 "+ m +"월 ");
         ymBar.setSubtitle("월간 달력");                   // 입력받은 포지션 값을 해석하고 앱바 타이틀 조정
 
-        if(is2 != 0)                                    // 중요! 뷰페이저 생성은 1회성으로 한정함.
+        if(num2 != 0)                                    // 중요! 뷰페이저 생성은 1회성으로 한정함.
             mCalViewPager.setCurrentItem(pos);
         else{
-            is2++;
+            num2++;
             adapter = new mCalendarPagerAdapter(this);// 페이저어댑터 정의
             mCalViewPager.setAdapter(adapter);// 뷰페이저에 어댑터 장착
             mCalViewPager.setCurrentItem(pos,false);                                       // 앱 실행시 제일 처음 보여주는 페이지 설정
