@@ -35,6 +35,15 @@ public class mCalendarFrag extends Fragment {
         CalendarBaseAdapter adapt = new CalendarBaseAdapter(getActivity(),android.R.layout.simple_list_item_1,items);   // base 어댑터 생성
 
         gView.setAdapter(adapt);// 그리드뷰에 어댑터 적용
+        String day_full = year + "년 "+ month  + "월 ";
+        gView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if(items[position] != "") {
+                    Toast.makeText(getActivity(), day_full + items[position] + "일", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
         return calView;
     }
