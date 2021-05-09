@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
 
+import com.example.calendar.MainActivity;
 import com.example.calendar.R;
 
 public class mCalendarFrag extends Fragment {
@@ -36,6 +37,14 @@ public class mCalendarFrag extends Fragment {
 
         gView.setAdapter(adapt);// 그리드뷰에 어댑터 적용
 
+
+        String day_full = year + "년 "+ month  + "월 ";
+        gView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getActivity(), day_full,Toast.LENGTH_SHORT).show();
+            }
+        });
 //        gView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 //            public void onItemClick(AdapterView<?> parent, View v,
 //                                    int position, long id) {
