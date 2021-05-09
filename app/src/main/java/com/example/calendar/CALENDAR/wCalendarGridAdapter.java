@@ -19,7 +19,7 @@ import com.example.calendar.R;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class Week_GridAdapter extends BaseAdapter {
+public class wCalendarGridAdapter extends BaseAdapter {
 
     Context context;
     ArrayList<String> list;
@@ -42,7 +42,7 @@ public class Week_GridAdapter extends BaseAdapter {
 //        this.mResource=resource;
 //        this.list=list;
 //    }
-    public Week_GridAdapter(Context context,int resource,ArrayList<String>list,int height){
+    public wCalendarGridAdapter(Context context, int resource, ArrayList<String>list, int height){
         this.context=context;
         this.mResource=resource;
         this.list=list;
