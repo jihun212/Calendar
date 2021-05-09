@@ -42,7 +42,7 @@ public class mCalendarFrag extends Fragment {
         gView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getActivity(), day_full,Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), day_full+items[position]+"일",Toast.LENGTH_SHORT).show();
             }
         });
 //        gView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
