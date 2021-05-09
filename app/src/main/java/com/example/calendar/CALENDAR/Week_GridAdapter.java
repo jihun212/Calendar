@@ -1,6 +1,7 @@
 package com.example.calendar.CALENDAR;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,7 +9,9 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.ColorInt;
 import androidx.core.content.ContextCompat;
 
 import com.example.calendar.R;
@@ -81,11 +84,6 @@ public class Week_GridAdapter extends BaseAdapter {
         text.setText(list.get(position));
 
         text.setGravity(Gravity.CENTER_HORIZONTAL|Gravity.TOP);  //텍스트 위치
-        text.setBackgroundColor(R.drawable.ic_launcher_background);
-//        text.setBackground(ContextCompat.getDrawable(
-//                context,R.drawable.grideview_selector    //item 항목 배경을 gridview_selector로 설정(state_pressed 등)
-//        ));
-
 
         return text;
 

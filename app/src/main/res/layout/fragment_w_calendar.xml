@@ -155,6 +155,7 @@
                 android:horizontalSpacing="2dp"
                 android:verticalSpacing="2dp"
                 android:listSelector="#00ffff"
+                android:drawSelectorOnTop="true"
                 />
 
         </LinearLayout>

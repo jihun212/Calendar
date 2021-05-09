@@ -97,7 +97,6 @@ public class MainActivity extends AppCompatActivity {
         if(num2 != 0)                                    // 중요! 뷰페이저 생성은 1회성으로 한정함.
             mCalViewPager.setCurrentItem(pos);
         else{
-            num2++;
             adapter = new mCalendarPagerAdapter(this);// 페이저어댑터 정의
             mCalViewPager.setAdapter(adapter);// 뷰페이저에 어댑터 장착
             mCalViewPager.setCurrentItem(pos,false);                                       // 앱 실행시 제일 처음 보여주는 페이지 설정
