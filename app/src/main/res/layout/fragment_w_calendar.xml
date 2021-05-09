@@ -5,20 +5,56 @@
     android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="150dp"
         android:layout_marginLeft="20dp"
         android:orientation="vertical">
 
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/Yellow"
+            android:columnCount="7">
+
+            <TextView android:text="@string/일"
+                android:textColor="@color/Red"
+                android:gravity="center_horizontal"
+                android:layout_columnWeight="1" />
+
+            <TextView android:text="@string/월"
+                android:gravity="center_horizontal"
+                android:layout_columnWeight="1" />
+
+            <TextView android:text="@string/화"
+                android:gravity="center_horizontal"
+                android:layout_columnWeight="1"/>
+
+            <TextView android:text="@string/수"
+                android:gravity="center_horizontal"
+                android:layout_columnWeight="1"/>
+
+            <TextView android:text="@string/목"
+                android:gravity="center_horizontal"
+                android:layout_columnWeight="1"/>
+
+            <TextView android:text="@string/금"
+                android:gravity="center_horizontal"
+                android:layout_columnWeight="1"/>
+
+            <TextView android:text="@string/토"
+                android:textColor="@color/Blue"
+                android:gravity="center_horizontal"
+                android:layout_columnWeight="1"/>
+        </GridLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="horizontal">
 
             <GridView
                 android:id="@+id/wCalendarGridView"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:gravity="center_horizontal"
                 android:numColumns="7"
                 android:layout_weight="1"

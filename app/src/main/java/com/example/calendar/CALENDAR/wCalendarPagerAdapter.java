@@ -1,11 +1,7 @@
 package com.example.calendar.CALENDAR;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentStatePagerAdapter;
-import androidx.lifecycle.Lifecycle;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 public class wCalendarPagerAdapter extends FragmentStateAdapter {
@@ -25,8 +21,8 @@ public class wCalendarPagerAdapter extends FragmentStateAdapter {
 
     @Override
     public int getItemCount() {
-        CalendarData cal = new CalendarData();          // 달력 데이터 객체 생성
-        cal.setCalendar(year, month);                   // 주어진 년,월 데이터를 토대로 객체에 달력 데이터 주입
+        CalendarData cal = new CalendarData();
+        cal.setCalendar(year, month);
         return findTotalPage(cal.StringConverter());
     }
 

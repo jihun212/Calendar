@@ -25,7 +25,8 @@ public class wCalendarFrag extends Fragment {
 
     private static final String ARG_PARAM1 = "param1";
 
-    ArrayList<String> list1 = new ArrayList<>();  //주간 24*7표 공백 저장
+    ArrayList<String> list1 = new ArrayList<>();  
+    //ArrayList 저장
 
     wCalendarFrag(int y, int m, int w) {
         year = y;
@@ -38,14 +39,20 @@ public class wCalendarFrag extends Fragment {
 
         View calView = inflater.inflate(R.layout.fragment_w_calendar, container, false);
 
-        CalendarData cal = new CalendarData();          // 달력 데이터 객체 생성
-        cal.setCalendar(year, month);                   // 주어진 년,월 데이터를 토대로 객체에 달력 데이터 주입
+        CalendarData cal = new CalendarData();          
+        // 달력 데이터 객체 준비
+        cal.setCalendar(year, month);                   
+        // 객체에 달력 데이터 생성
 
-        items = cal.StringConverter();                  // 생성된 달력 데이터를 문자열 배열에 삽입
-        wItems = itemsForWeekCal(week);                 // 문자열 배열에서 week주차의 배열만 추출
+        items = cal.StringConverter();                  
+        // 문자열 배열에 삽입
+        wItems = itemsForWeekCal(week);                 
+        // 문자열 배열에서 week주차의 배열 추출
 
-        GridView gView = calView.findViewById(R.id.wCalendarGridView);              // calView 에 들어갈 그리드뷰1 생성
-        GridView gView_week = calView.findViewById(R.id.wCalendarGridView_week);    // calView 에 들어갈 그리드뷰2 생성
+        GridView gView = calView.findViewById(R.id.wCalendarGridView);              
+        // calView 에 들어갈 그리드뷰1 생성
+        GridView gView_week = calView.findViewById(R.id.wCalendarGridView_week);    
+        // calView 에 들어갈 그리드뷰2 생성
 
         gView_week.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -53,22 +60,27 @@ public class wCalendarFrag extends Fragment {
                     Toast.makeText(getActivity(), ((position/7))+" 시"+" position"+((position%7)+1), Toast.LENGTH_SHORT).show();
             }
         });
+
         getWeekCalendar();
 
-        ArrayAdapter<String> adapt_grid_week = new ArrayAdapter<String>(getActivity(), R.layout.list_item, list1);        // ArrayAdapter 준비
+        ArrayAdapter<String> adapt_grid_week = new ArrayAdapter<String>(getActivity(), R.layout.grid_item, list1);
+        // ArrayAdapter 준비
 
-        CalendarBaseAdapter adapt = new CalendarBaseAdapter(getActivity(), android.R.layout.simple_list_item_1, wItems);  // base 어댑터 생성
+        CalendarBaseAdapter adapt = new CalendarBaseAdapter(getActivity(), android.R.layout.simple_list_item_1, wItems);
+        // base 어댑터 생성
 
         wCalendarGridAdapter gadapt;
 
         if (getActivity().getWindowManager().getDefaultDisplay().getRotation() == Surface.ROTATION_90 || getActivity().getWindowManager().getDefaultDisplay().getRotation() == Surface.ROTATION_270) {
-            gadapt = new wCalendarGridAdapter(getActivity(), R.layout.list_item, list1, 150);
+            gadapt = new wCalendarGridAdapter(getActivity(), R.layout.grid_item, list1, 150);
         } else {
-            gadapt = new wCalendarGridAdapter(getActivity(), R.layout.list_item, list1, 250);
+            gadapt = new wCalendarGridAdapter(getActivity(), R.layout.grid_item, list1, 250);
         }
 
-        gView.setAdapter(adapt);        // 그리드뷰1에 어댑터 적용
-        gView_week.setAdapter(gadapt);  // 그리드뷰2에 어댑터 적용
+        gView.setAdapter(adapt);
+        // 그리드뷰1에 어댑터 적용
+        gView_week.setAdapter(gadapt);
+        // 그리드뷰2에 어댑터 적용
 
         return calView;
     }

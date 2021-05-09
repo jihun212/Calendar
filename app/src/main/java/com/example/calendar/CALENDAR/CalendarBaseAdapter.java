@@ -46,10 +46,12 @@ class CalendarBaseAdapter extends BaseAdapter {
         else textView = (TextView) convertView;
 
         if(position != 0 && (position + 1) %7 == 0)
-            textView.setTextColor(context.getResources().getColor(R.color.Blue));   // 토요일 파란색 변경
+            textView.setTextColor(context.getResources().getColor(R.color.Blue));
+        // 토요일 파란색 변경
 
         if(position % 7 == 0)
-            textView.setTextColor(context.getResources().getColor(R.color.Red));   // 일요일 빨간색 변경
+            textView.setTextColor(context.getResources().getColor(R.color.Red));
+        // 일요일 빨간색 변경
 
         textView.setText(data[position]);
         textView.setGravity(Gravity.CENTER);

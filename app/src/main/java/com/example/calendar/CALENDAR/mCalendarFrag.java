@@ -26,16 +26,23 @@ public class mCalendarFrag extends Fragment {
 
         View calView = inflater.inflate(R.layout.fragment_m_calendar, container, false);
 
-        CalendarData cal = new CalendarData();          // 달력 데이터 객체 생성
-        cal.setCalendar(year, month);                   // 주어진 년,월 데이터를 토대로 객체에 달력 데이터 주입
+        CalendarData cal = new CalendarData();
+        // 달력 데이터 객체 생성
+        cal.setCalendar(year, month);
+        // 객체에 달력 데이터 적용
 
-        items = cal.StringConverter();                  // 생성된 달력 데이터를 문자열 배열에 삽입
+        items = cal.StringConverter();
+        // 데이터를 문자열 배열에 삽입
 
-        GridView gView = calView.findViewById(R.id.mCalendarGridView);  // calView 에 들어갈 그리드뷰 생성
-        CalendarBaseAdapter adapt = new CalendarBaseAdapter(getActivity(),android.R.layout.simple_list_item_1,items);   // base 어댑터 생성
+        GridView gView = calView.findViewById(R.id.mCalendarGridView);
+        // calView 에 들어갈 그리드뷰 생성
+        CalendarBaseAdapter adapt = new CalendarBaseAdapter(getActivity(),android.R.layout.simple_list_item_1,items);
+        // base 어댑터 생성
 
-        gView.setAdapter(adapt);// 그리드뷰에 어댑터 적용
+        gView.setAdapter(adapt);
+        // 그리드뷰에 어댑터 적용
         String day_full = year + "년 "+ month  + "월 ";
+
         gView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
