@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import androidx.core.content.ContextCompat;
 
+import com.example.calendar.R;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -79,7 +81,7 @@ public class Week_GridAdapter extends BaseAdapter {
         text.setText(list.get(position));
 
         text.setGravity(Gravity.CENTER_HORIZONTAL|Gravity.TOP);  //텍스트 위치
-
+        text.setBackgroundColor(R.drawable.ic_launcher_background);
 //        text.setBackground(ContextCompat.getDrawable(
 //                context,R.drawable.grideview_selector    //item 항목 배경을 gridview_selector로 설정(state_pressed 등)
 //        ));

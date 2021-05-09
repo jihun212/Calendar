@@ -49,6 +49,13 @@ public class wCalendarFrag extends Fragment {
         GridView gView = calView.findViewById(R.id.wCalendarGridView);  // calView 에 들어갈 그리드뷰 생성
         GridView gView_week = calView.findViewById(R.id.wCalendarGridView_week);
 
+
+        gView_week.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Toast.makeText(getActivity(), ((position/7))+" 시"+" position"+((position%7)+1), Toast.LENGTH_SHORT).show();
+            }
+        });
         getWeekCalendar();
 
         //어댑터 준비 (배열 객체 이용, simple_list_item_1 리소스 사용
