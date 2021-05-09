@@ -50,6 +50,7 @@
             android:numColumns="7"
             android:background="#ffeeee"
             android:horizontalSpacing="1dp"
-            android:verticalSpacing="1dp"/>
+            android:verticalSpacing="1dp"
+            android:listSelector="#00ffff" />
 
 </LinearLayout>

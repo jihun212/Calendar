@@ -1,6 +1,7 @@
 package com.example.calendar.CALENDAR;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -55,7 +56,8 @@ class CalendarBaseAdapter extends BaseAdapter {
         tv.setText(data[position]);
         tv.setGravity(Gravity.CENTER);
         tv.setHeight(parent.getHeight()/6);
-        tv.setBackgroundColor(context.getResources().getColor(R.color.white));
+        tv.setBackgroundColor(R.drawable.ic_launcher_background);
+
         return tv;
     }
 }
