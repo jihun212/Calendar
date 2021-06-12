@@ -1,10 +1,12 @@
 package com.example.calendar;
 
+import android.database.Cursor;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -61,6 +63,7 @@ public class ScheduleActivity extends AppCompatActivity {
                         place.getText().toString(),
                         memo.getText().toString()
                 );
+                viewAllToTextView();
             }
         });
 
@@ -91,4 +94,25 @@ public class ScheduleActivity extends AppCompatActivity {
         return new int[] {hour,min};
     }
 
+
+    //SQLite 관련 함수
+    //저장 삭제 확인용으로 지워도 무방
+    private void viewAllToTextView() {
+        TextView result = (TextView)findViewById(R.id.result);
+
+        Cursor cursor = mDbHelper.getAllMemosBySQL();
+
+        StringBuffer buffer = new StringBuffer();
+        while (cursor.moveToNext()) {
+            buffer.append(cursor.getInt(0)+" \t");
+            buffer.append(cursor.getString(1)+" \t");
+            buffer.append(cursor.getString(2)+" \t");
+            buffer.append(cursor.getString(3)+" \t");
+            buffer.append(cursor.getString(4)+" \t");
+            buffer.append(cursor.getString(5)+" \t");
+            buffer.append(cursor.getString(6)+" \t");
+            buffer.append(cursor.getString(7)+"\n");
+        }
+        result.setText(buffer);
+    }
 }

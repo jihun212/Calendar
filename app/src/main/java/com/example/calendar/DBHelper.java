@@ -30,22 +30,28 @@ public class DBHelper extends SQLiteOpenHelper {
     public void insertUserBySQL(String title, int start_hour,int start_min,int end_hour,int end_min,String place, String memo) {
         try {
             String sql = String.format (
-                    "INSERT INTO %s (%s, %s, %s) VALUES (NULL, '%s', '%s')",
+                    "INSERT INTO %s (%s, %s, %s, %s, %s, %s, %s, %s) VALUES (NULL, '%s', %d, %d, %d, %d, '%s', '%s')",
                     UserContract.Users.TABLE_NAME,
                     UserContract.Users._ID,
-                    UserContract.Users.Title_NAME,
+                    UserContract.Users.KEY_TITLE,
                     UserContract.Users.KEY_S_HOUR,
                     UserContract.Users.KEY_S_MIN,
                     UserContract.Users.KEY_E_HOUR,
                     UserContract.Users.KEY_E_MIN,
                     UserContract.Users.KEY_PLACE,
                     UserContract.Users.KEY_MEMO,
-                    title, start_hour, start_min, end_hour, end_min,place,memo);
+                    title, start_hour, start_min, end_hour, end_min, place, memo);
 
             getWritableDatabase().execSQL(sql);
         } catch (SQLException e) {
             Log.e(TAG,"Error in inserting recodes");
         }
+
+
+    }
+    public Cursor getAllMemosBySQL() {
+        String sql = "Select * FROM " + UserContract.Users.TABLE_NAME;
+        return getReadableDatabase().rawQuery(sql,null);
     }
 }
 

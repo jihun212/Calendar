@@ -15,7 +15,7 @@ public final class UserContract {
     /* Inner class that defines the table contents */
     public static class Users implements BaseColumns {
         public static final String TABLE_NAME="Users";
-        public static final String Title_NAME="Title";
+        public static final String KEY_TITLE="Title";
         public static final String KEY_S_HOUR = "start_hour";
         public static final String KEY_S_MIN = "start_min";
         public static final String KEY_E_HOUR = "end_hour";
@@ -27,7 +27,7 @@ public final class UserContract {
 
         public static final String CREATE_TABLE = "CREATE TABLE " + TABLE_NAME + " (" +
                 _ID + " INTEGER PRIMARY KEY" + COMMA_SEP +
-                Title_NAME + TEXT_TYPE + COMMA_SEP +
+                KEY_TITLE + TEXT_TYPE + COMMA_SEP +
                 KEY_S_HOUR + INT_TYPE + COMMA_SEP +
                 KEY_S_MIN + INT_TYPE + COMMA_SEP +
                 KEY_E_HOUR + INT_TYPE + COMMA_SEP +

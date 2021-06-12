@@ -123,7 +123,14 @@
                 android:layout_margin="10dp"
                 android:text="삭제" />
         </LinearLayout>
-
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/sql_id"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/result" />
     </LinearLayout>
 
 </ScrollView>
