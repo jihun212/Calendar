@@ -17,6 +17,11 @@ import java.nio.Buffer;
 
 public class ScheduleActivity extends AppCompatActivity {
 
+    int year;
+    int month;
+    int date;
+
+
     EditText schedule_title;
     TimePicker schedule_start;
     TimePicker schedule_end;
@@ -77,8 +82,13 @@ public class ScheduleActivity extends AppCompatActivity {
         delete_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Toast.makeText(ScheduleActivity.this,"삭제", Toast.LENGTH_SHORT).show();
+                EditText idTextView=findViewById(R.id.sql_id);
+                String _id = idTextView.getText().toString();
+                mDbHelper.deleteUserBySQL(_id);
+                viewAllToTextView();
             }
+
         });
     }
 

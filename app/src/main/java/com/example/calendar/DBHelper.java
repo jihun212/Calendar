@@ -46,8 +46,19 @@ public class DBHelper extends SQLiteOpenHelper {
         } catch (SQLException e) {
             Log.e(TAG,"Error in inserting recodes");
         }
+    }
 
-
+    public void deleteUserBySQL(String _id) {
+        try {
+            String sql = String.format (
+                    "DELETE FROM %s WHERE %s = %s",
+                    UserContract.Users.TABLE_NAME,
+                    UserContract.Users._ID,
+                    _id);
+            getWritableDatabase().execSQL(sql);
+        } catch (SQLException e) {
+            Log.e(TAG,"Error in deleting recodes");
+        }
     }
     public Cursor getAllMemosBySQL() {
         String sql = "Select * FROM " + UserContract.Users.TABLE_NAME;
