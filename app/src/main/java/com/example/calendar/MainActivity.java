@@ -1,5 +1,6 @@
 package com.example.calendar;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,6 +17,8 @@ import androidx.viewpager2.widget.ViewPager2;
 import com.example.calendar.CALENDAR.mCalendarPagerAdapter;
 import com.example.calendar.CALENDAR.wCalendarPagerAdapter;
 import com.example.calendar.CALENDAR.wCalendarFrag;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.Calendar;
 
@@ -48,6 +51,24 @@ public class MainActivity extends AppCompatActivity {
             setMonthlyCalendar(curPosition);
             num1++;
         }
+
+
+
+
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, ScheduleActivity.class);
+
+                startActivity(intent);
+            }
+        });
+
+
+
+
     }
 
     //액션버튼

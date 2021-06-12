@@ -14,6 +14,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Calendar">
 
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDAwUWI5JhQU4h7bK11dfUky2Wwdyf5vDg" />
 
         <activity android:name=".MainActivity"
             android:configChanges="orientation|screenSize|keyboardHidden">
@@ -23,6 +29,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ScheduleActivity" />
     </application>
 
 </manifest>
