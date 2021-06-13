@@ -1,5 +1,6 @@
 package com.example.calendar.CALENDAR;
 
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 
@@ -8,7 +9,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
 
+import com.example.calendar.MainActivity;
 import com.example.calendar.R;
+import com.example.calendar.ScheduleActivity;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class mCalendarFrag extends Fragment {
 
@@ -48,6 +52,7 @@ public class mCalendarFrag extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if(items[position] != "") {
                     Toast.makeText(getActivity(), day_full + items[position] + "일", Toast.LENGTH_SHORT).show();
+
                 }
             }
         });

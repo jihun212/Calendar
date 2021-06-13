@@ -61,7 +61,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, ScheduleActivity.class);
-
+                int year = curPosition/12;
+                int month = getMonthfromPos(curPosition);
+                int date = javaCalendar.get(Calendar.DATE);
+                intent.putExtra("year",year);
+                intent.putExtra("month",month);
+                intent.putExtra("date",date);
                 startActivity(intent);
             }
         });
@@ -179,5 +184,6 @@ public class MainActivity extends AppCompatActivity {
         if((pos%12)==0) return 1;
         else return (pos%12)+1;
     }
+
 }
 

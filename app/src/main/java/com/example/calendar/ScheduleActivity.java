@@ -1,5 +1,6 @@
 package com.example.calendar;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Build;
 import android.os.Bundle;
@@ -49,6 +50,12 @@ public class ScheduleActivity extends AppCompatActivity {
 
         mDbHelper = new DBHelper(this);
 
+        Intent intent = getIntent();
+        int year = intent.getIntExtra("year",0);
+        int month =intent.getIntExtra("month",0);
+        int date =intent.getIntExtra("date",0);
+
+        schedule_title.setText(year+"년"+month+"월"+date+"일");
 
         Button save_btn = (Button)findViewById(R.id.save);
         Button cancel_btn = (Button)findViewById(R.id.cancel);
