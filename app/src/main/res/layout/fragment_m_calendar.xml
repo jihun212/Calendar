@@ -3,8 +3,8 @@
 
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white">
+    android:layout_height="match_parent">
+<!--    android:background="@color/white">-->
         <GridLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -41,16 +41,24 @@
                     android:gravity="center_horizontal"
                     android:layout_columnWeight="1"/>
         </GridLayout>
-        
-        <GridView
-            android:id="@+id/mCalendarGridView"
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center_horizontal"
-            android:numColumns="7"
-            android:background="@color/white"
-            android:horizontalSpacing="1dp"
-            android:verticalSpacing="1dp"
-            android:listSelector="#00ffff"/>
+            android:orientation="vertical"
+            android:layout_weight="1">
+                
+            <GridView
+                android:id="@+id/mCalendarGridView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:numColumns="7"
+                android:background="@color/white"
+                android:horizontalSpacing="2dp"
+                android:verticalSpacing="2dp"
+                android:listSelector="#00ffff"/>
+
+        </LinearLayout>
 
 </LinearLayout>
