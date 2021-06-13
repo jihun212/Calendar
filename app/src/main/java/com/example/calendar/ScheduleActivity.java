@@ -1,8 +1,8 @@
 package com.example.calendar;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,9 +11,8 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-
-import java.nio.Buffer;
 
 
 public class ScheduleActivity extends AppCompatActivity {
@@ -89,11 +88,25 @@ public class ScheduleActivity extends AppCompatActivity {
         delete_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(ScheduleActivity.this,"삭제", Toast.LENGTH_SHORT).show();
                 EditText idTextView=findViewById(R.id.sql_id);
                 String _id = idTextView.getText().toString();
-                mDbHelper.deleteUserBySQL(_id);
-                viewAllToTextView();
+                AlertDialog.Builder dlg = new AlertDialog.Builder(ScheduleActivity.this);
+                dlg.setMessage("정말 삭제하시겠습니까?");
+                dlg.setPositiveButton("예",new DialogInterface.OnClickListener(){
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(ScheduleActivity.this,"삭제", Toast.LENGTH_SHORT).show();
+                        mDbHelper.deleteUserBySQL(_id);
+                        viewAllToTextView();
+                    }
+                });
+                dlg.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(ScheduleActivity.this,"실행 취소", Toast.LENGTH_LONG).show();
+                        viewAllToTextView();
+                    }
+                });
+                dlg.show();
             }
 
         });
@@ -117,7 +130,7 @@ public class ScheduleActivity extends AppCompatActivity {
     private void viewAllToTextView() {
         TextView result = (TextView)findViewById(R.id.result);
 
-        Cursor cursor = mDbHelper.getAllMemosBySQL();
+        Cursor cursor = mDbHelper.getAllUsersBySQL();
 
         StringBuffer buffer = new StringBuffer();
         while (cursor.moveToNext()) {

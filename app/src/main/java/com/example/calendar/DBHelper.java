@@ -60,8 +60,18 @@ public class DBHelper extends SQLiteOpenHelper {
             Log.e(TAG,"Error in deleting recodes");
         }
     }
-    public Cursor getAllMemosBySQL() {
+    public Cursor getAllUsersBySQL() {
         String sql = "Select * FROM " + UserContract.Users.TABLE_NAME;
+        return getReadableDatabase().rawQuery(sql,null);
+    }
+
+    public Cursor getDateUsersBySQL(int year,int month,int date) {
+        String day= year+"년"+month+"월"+date+"일";
+        String sql= String.format(
+                "SELECT * FROM %s WHERE %s = '%s'",
+                UserContract.Users.TABLE_NAME,
+                UserContract.Users.KEY_TITLE,
+                day);
         return getReadableDatabase().rawQuery(sql,null);
     }
 }
