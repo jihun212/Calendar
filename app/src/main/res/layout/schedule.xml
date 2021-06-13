@@ -126,7 +126,7 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/sql_id"/>
+            android:id="@+id/ID"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

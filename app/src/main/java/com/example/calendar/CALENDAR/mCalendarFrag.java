@@ -1,6 +1,9 @@
 package com.example.calendar.CALENDAR;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 
@@ -9,16 +12,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
 
+import com.example.calendar.DBHelper;
 import com.example.calendar.MainActivity;
 import com.example.calendar.R;
 import com.example.calendar.ScheduleActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.ArrayList;
 
 public class mCalendarFrag extends Fragment {
 
     private int year;
     private int month;
     String[] items;
+    private DBHelper mDbHelper;
 
     mCalendarFrag(int y, int m) {
         year = y;
@@ -52,8 +59,21 @@ public class mCalendarFrag extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if(items[position] != "") {
                     Toast.makeText(getActivity(), day_full + items[position] + "일", Toast.LENGTH_SHORT).show();
+                    int date = Integer.parseInt(items[position]);
 
+                }else{
+                    AlertDialog.Builder dlg = new AlertDialog.Builder(getActivity());
+                    dlg.setTitle("dialog 확인용"); //제목
+                    dlg.setMessage("빈공간입니다 ."); // 메시지
+                    dlg.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            //토스트 메시지
+                            Toast.makeText(getActivity(), "확인을 눌르셨습니다.", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    dlg.show();
                 }
+
             }
         });
 

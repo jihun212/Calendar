@@ -117,7 +117,7 @@ public class ScheduleActivity extends AppCompatActivity implements OnMapReadyCal
         delete_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EditText idTextView=findViewById(R.id.sql_id);
+                EditText idTextView=findViewById(R.id.ID);
                 String _id = idTextView.getText().toString();
                 AlertDialog.Builder dlg = new AlertDialog.Builder(ScheduleActivity.this);
                 dlg.setMessage("정말 삭제하시겠습니까?");
