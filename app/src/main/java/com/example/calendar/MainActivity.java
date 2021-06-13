@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements mCalendarFrag.OnT
     int mYear, mMonth, mDate;
     int num1 = 0, num2 = 0;
 
-    public void onTimePickerSet(int year, int month, int date){
+    public void onTimePickerSet(int year, int month, int date){         //mCalendarFrag로부터 year, month, date 얻어옴
         mYear=year;
         mMonth=month;
         mDate=date;
@@ -61,28 +61,17 @@ public class MainActivity extends AppCompatActivity implements mCalendarFrag.OnT
             num1++;
         }
 
-
-
-
-
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, ScheduleActivity.class);
-                int year = curPosition/12;
-                int month = getMonthfromPos(curPosition);
-                int date = javaCalendar.get(Calendar.DATE);
                 intent.putExtra("year",mYear);
                 intent.putExtra("month",mMonth);
                 intent.putExtra("date",mDate);
                 startActivity(intent);
             }
         });
-
-
-
-
     }
 
     //액션버튼

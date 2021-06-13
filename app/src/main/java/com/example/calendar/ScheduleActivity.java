@@ -8,6 +8,7 @@ import android.database.Cursor;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -17,6 +18,7 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -58,6 +60,7 @@ public class ScheduleActivity extends AppCompatActivity implements OnMapReadyCal
 
 
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.schedule);
@@ -69,6 +72,7 @@ public class ScheduleActivity extends AppCompatActivity implements OnMapReadyCal
         int start_min= TimePickerSplit(schedule_start)[1];
 
         schedule_end=findViewById(R.id.schedule_end);
+        schedule_end.setHour(start_hour+1);
         int end_hour= TimePickerSplit(schedule_end)[0];
         int end_min= TimePickerSplit(schedule_end)[1];
 
@@ -82,7 +86,7 @@ public class ScheduleActivity extends AppCompatActivity implements OnMapReadyCal
         int month =intent.getIntExtra("month",0);
         int date =intent.getIntExtra("date",0);
 
-        schedule_title.setText(year+"년"+month+"월"+date+"일");
+        schedule_title.setText(year+"년"+month+"월"+date+"일"+start_hour+"시"+start_min+"분");
 
         Button save_btn = (Button)findViewById(R.id.save);
         Button cancel_btn = (Button)findViewById(R.id.cancel);

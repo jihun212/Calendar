@@ -64,33 +64,5 @@ public class DBHelper extends SQLiteOpenHelper {
         String sql = "Select * FROM " + UserContract.Users.TABLE_NAME;
         return getReadableDatabase().rawQuery(sql,null);
     }
-
-    public Cursor getDateUsersBySQL(int year,int month,int date) {
-        String day= year+"년"+month+"월"+date+"일";
-        String sql= String.format(
-                "SELECT * FROM %s WHERE %s = '%s'",
-                UserContract.Users.TABLE_NAME,
-                UserContract.Users.KEY_TITLE,
-                day);
-        return getReadableDatabase().rawQuery(sql,null);
-    }
 }
 
-//public Cursor getAllUsersBySQL() {
-//    String sql = "Select * FROM " + UserContract.Users.TABLE_NAME;
-//    return getReadableDatabase().rawQuery(sql,null);
-//}
-
-
-//    public void deleteUserBySQL(String _id) {
-//        try {
-//            String sql = String.format (
-//                    "DELETE FROM %s WHERE %s = %s",
-//                    UserContract.Users.TABLE_NAME,
-//                    UserContract.Users._ID,
-//                    _id);
-//            getWritableDatabase().execSQL(sql);
-//        } catch (SQLException e) {
-//            Log.e(TAG,"Error in deleting recodes");
-//        }
-//    }
