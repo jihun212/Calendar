@@ -41,15 +41,10 @@ import java.util.Locale;
 
 public class ScheduleActivity extends AppCompatActivity implements OnMapReadyCallback {
 
-    int year;
-    int month;
-    int date;
-
     final int REQUEST_PERMISSIONS_FOR_LAST_KNOWN_LOCATION = 0;
     private FusedLocationProviderClient mFusedLocationClient;
     Location mLastLocation;
     Button search_btn;
-    EditText address;
     EditText schedule_title;
     TimePicker schedule_start;
     TimePicker schedule_end;
