@@ -1,6 +1,7 @@
 package com.example.calendar.CALENDAR;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
@@ -26,6 +27,8 @@ public class mCalendarFrag extends Fragment {
     private int month;
     String[] items;
     private DBHelper mDbHelper;
+
+    private OnTimePickerSetListener onTimePickerSetListener;
 
     mCalendarFrag(int y, int m) {
         year = y;
@@ -60,7 +63,7 @@ public class mCalendarFrag extends Fragment {
                 if(items[position] != "") {
                     Toast.makeText(getActivity(), day_full + items[position] + "일", Toast.LENGTH_SHORT).show();
                     int date = Integer.parseInt(items[position]);
-
+                    onTimePickerSetListener.onTimePickerSet(year,month,date);
                 }else{
                     AlertDialog.Builder dlg = new AlertDialog.Builder(getActivity());
                     dlg.setTitle("dialog 확인용"); //제목
@@ -77,7 +80,27 @@ public class mCalendarFrag extends Fragment {
             }
         });
 
+
         return calView;
     }
+    public interface OnTimePickerSetListener{
+        void onTimePickerSet(int year, int month, int date);
+    }
+
+    public void onAttach(Context context){
+        super.onAttach(context);
+        if(context instanceof OnTimePickerSetListener){
+            onTimePickerSetListener = (OnTimePickerSetListener)context;
+        }else{
+            throw new RuntimeException(context.toString()+" must implement OnTimePickerListener");
+        }
+    }
+    public void onDetach(){
+        super.onDetach();
+        onTimePickerSetListener = null;
+    }
+
+
 }
+
 

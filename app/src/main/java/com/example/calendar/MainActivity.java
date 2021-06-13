@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
+import com.example.calendar.CALENDAR.mCalendarFrag;
 import com.example.calendar.CALENDAR.mCalendarPagerAdapter;
 import com.example.calendar.CALENDAR.wCalendarPagerAdapter;
 import com.example.calendar.CALENDAR.wCalendarFrag;
@@ -22,7 +23,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 import java.util.Calendar;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements mCalendarFrag.OnTimePickerSetListener{
 
     ViewPager2 mCalViewPager, wCalViewPager;                            // 월간달력과 주간달력 뷰페이저 생성
     FragmentStateAdapter adapter;                                       // 뷰페이저와 페이저어댑터 생성
@@ -30,7 +31,15 @@ public class MainActivity extends AppCompatActivity {
     ActionBar ymBar;                                                    // 앱 최상단 앱바 생성
 
     int curPosition, mode, weekDATA;
+    int mYear, mMonth, mDate;
     int num1 = 0, num2 = 0;
+
+    public void onTimePickerSet(int year, int month, int date){
+        mYear=year;
+        mMonth=month;
+        mDate=date;
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,9 +73,9 @@ public class MainActivity extends AppCompatActivity {
                 int year = curPosition/12;
                 int month = getMonthfromPos(curPosition);
                 int date = javaCalendar.get(Calendar.DATE);
-                intent.putExtra("year",year);
-                intent.putExtra("month",month);
-                intent.putExtra("date",date);
+                intent.putExtra("year",mYear);
+                intent.putExtra("month",mMonth);
+                intent.putExtra("date",mDate);
                 startActivity(intent);
             }
         });

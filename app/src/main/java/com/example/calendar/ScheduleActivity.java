@@ -156,7 +156,6 @@ public class ScheduleActivity extends AppCompatActivity implements OnMapReadyCal
 
 
     //SQLite 관련 함수
-    //저장 삭제 확인용으로 지워도 무방
     private void viewAllToTextView() {
         TextView result = (TextView)findViewById(R.id.result);
 
@@ -240,9 +239,7 @@ public class ScheduleActivity extends AppCompatActivity implements OnMapReadyCal
                                 position(point).
                                 title(".."));
                 googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(point,15));
-
             }
-
         });
 
     }
